@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'auth.sign_in'    => 'Sign In',
+    'auth.username'   => 'Username',
+    'auth.username_placeholder'   => 'Enter your username',
+    'auth.email'      => 'Email',
+    'auth.email_placeholder'   => 'Enter your email',
+    'auth.password'   => 'Password',
+    'auth.password_placeholder' => 'Enter your password',
+    'auth.forgot_password' => 'Forgot password?',
+    'auth.back_to_login' => 'Back to signin',
+    'auth.reset_password' => 'Reset Password',
+    'auth.reset_limit' => 'Please wait 5 minutes before you can send new request.',
+    'auth.reset_sent' => "We've sent an mail with reset password link to your email, please check.",
+    'auth.reset_invalid' => "Your password reset link is not valid or expired.",
+    'auth.new_password' => "New Password",
+    'auth.new_password_placeholder' => "Enter your new password",
+    'auth.new_password_confirmation' => "New Password Confirmation",
+    'auth.new_password_confirmation_placeholder' => "Re-peat your new password",
+    'auth.reset_password_success' => "Your password has been changed successfully!",
+    'general.backend' => 'Backend',
+    'general.google_analytics' => 'Google Analytics',
+    'general.maintenance' => 'Maintenance',
+    'email.server' => 'Server',
+    'email.templates' => 'Templates',
+    'save_changes' => 'Save Changes',
+    'saved'        => 'Saved changes successfully!',
+    'email_error'  => "Oops! Send mail failed, please try again later.",
+    'ajax_email_template_error' => "Can't load email template.",
+    'cache_cleared' => "Cache cleared successfully!"
+];

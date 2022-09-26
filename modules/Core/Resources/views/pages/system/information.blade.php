@@ -1,0 +1,192 @@
+@php
+    $breadcrumb = [['title' => __('core::menu.system'), 'url' => '#'], ['title' => __('core::menu.system.information'), 'url' => '#', 'active' => true]];
+    $phpinfo = \Modules\Core\Supports\PhpInfo::get();
+    $system  = \Omaicode\Larinfo\LarinfoFacade::getServerInfo();
+    $database  = \Omaicode\Larinfo\LarinfoFacade::getDatabaseInfo();
+@endphp
+
+@extends('core::layouts.master')
+
+@section('title', "System Information")
+@section('content')
+    <x-breadcrumb :items="$breadcrumb">
+        <div class="h4 mb-0">@lang('core::menu.system.information')</div>
+    </x-breadcrumb>
+    <div class="row mb-5">
+        @include('core::pages.system.block', [
+            'variant' => 'primary',
+            'icon' => 'memory',
+            'title' => 'RAM',
+            'value' => $system['hardware']['ram']['human_total'],
+            'sub_value' => 'Free: '.$system['hardware']['ram']['human_free']
+        ])
+        @include('core::pages.system.block', [
+            'variant' => 'success',
+            'icon' => 'microchip',
+            'title' => 'CPU',
+            'value' => $system['hardware']['cpu_count'].' Core',
+            'sub_value' => $system['hardware']['cpu']
+        ])
+        @include('core::pages.system.block', [
+            'variant' => 'warning',
+            'icon' => 'hard-drive',
+            'title' => 'Storage',
+            'value' => $system['hardware']['disk']['human_total'],
+            'sub_value' => 'Free: '.$system['hardware']['disk']['human_free']
+        ])
+        @include('core::pages.system.block', [
+            'variant' => 'danger',
+            'icon' => 'database',
+            'title' => 'Database',
+            'value' => $database['driver'],
+            'sub_value' => $database['version']
+        ])
+        <div class="col-12 col-xl-8 col-lg-8">
+            <div class="card mb-3">
+                <div class="card-body p-3">
+                    <h5 class="card-title mb-0">Installed Packages</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hovered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Version</th>
+                                    <th scope="col">Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(composerPackages() as $package)
+                                <tr>
+                                    <td scope="row">{{$package['name']}}</td>
+                                    <td>{{$package['version']}}</td>
+                                    <td>{{$package['type']}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4 col-lg-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <h5 class="card-title mb-0">Environment</h5>
+                </div>
+                <div class="card-body p-0 pb-3">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-action rounded-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Database</div>
+                                <div class="fw-bold">{{ ucfirst(config('database.default')) }}</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item list-group-item-action rounded-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Timezone</div>
+                                <div class="fw-bold">{{ config('app.timezone') }}</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item list-group-item-action rounded-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Debug Mode</div>
+                                @if(config('app.debug') == 1)
+                                    <div class="fw-bold text-success"><i class="fas fa-check"></i></div>
+                                @else
+                                    <div class="fw-bold text-danger"><i class="fas fa-times"></i></div>
+                                @endif
+                            </div>
+                        </li>
+                        <li class="list-group-item list-group-item-action rounded-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Cache driver</div>
+                                <div class="fw-bold">{{ ucfirst(config('cache.default')) }}</div>
+                            </div>
+                        </li>                        
+                        <li class="list-group-item list-group-item-action rounded-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Session driver</div>
+                                <div class="fw-bold">{{ ucfirst(config('session.driver')) }}</div>
+                            </div>
+                        </li>                        
+                        <li class="list-group-item list-group-item-action rounded-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Queue connection</div>
+                                <div class="fw-bold">{{ ucfirst(config('queue.default')) }}</div>
+                            </div>
+                        </li>                        
+                        <li class="list-group-item list-group-item-action rounded-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>PHP</div>
+                                <div class="fw-bold">{{ $phpinfo['Core']['php-version'] }}</div>
+                            </div>
+                        </li>                        
+                        <li class="list-group-item list-group-item-action rounded-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Memory limit</div>
+                                <div class="fw-bold">{{ $phpinfo['Core']['memory-limit'][0] }}</div>
+                            </div>
+                        </li>                        
+                        <li class="list-group-item list-group-item-action rounded-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Max execution time</div>
+                                <div class="fw-bold">{{ $phpinfo['Core']['max-execution-time'][0] }}</div>
+                            </div>
+                        </li>                        
+                        <li class="list-group-item list-group-item-action rounded-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Max file uploads</div>
+                                <div class="fw-bold">{{ $phpinfo['Core']['max-file-uploads'][0] }}</div>
+                            </div>
+                        </li>                        
+                        <li class="list-group-item list-group-item-action rounded-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>Post max size</div>
+                                <div class="fw-bold">{{ $phpinfo['Core']['post-max-size'][0] }}</div>
+                            </div>
+                        </li>          
+                        @include('core::pages.system.list_item_check', [
+                            'title' => "OpenSSL Extension",
+                            'enabled' => $phpinfo['openssl']['openssl-support'] == 'enabled'
+                        ])                                     
+                        @include('core::pages.system.list_item_check', [
+                            'title' => "Mbstring Extension",
+                            'enabled' => $phpinfo['mbstring']['multibyte-support'] == 'enabled'
+                        ])                                                           
+                        @include('core::pages.system.list_item_check', [
+                            'title' => "cURL Extension",
+                            'enabled' => $phpinfo['curl']['curl-support'] == 'enabled'
+                        ])                                                                                  
+                        @include('core::pages.system.list_item_check', [
+                            'title' => "EXIF Extension",
+                            'enabled' => $phpinfo['exif']['exif-support'] == 'enabled'
+                        ])                                                                                                                                
+                        @include('core::pages.system.list_item_check', [
+                            'title' => "FileInfo Extension",
+                            'enabled' => $phpinfo['fileinfo']['fileinfo-support'] == 'enabled'
+                        ])                                                                                                                                
+                        @include('core::pages.system.list_item_check', [
+                            'title' => "Tokenizer Extension",
+                            'enabled' => $phpinfo['tokenizer']['tokenizer-support'] == 'enabled'
+                        ])                                                                                                                                
+                        @include('core::pages.system.list_item_check', [
+                            'title' => "Imagick Extension",
+                            'enabled' => $phpinfo['imagick']['imagick-module'] == 'enabled'
+                        ])                                                                                                                                
+                        @include('core::pages.system.list_item_check', [
+                            'title' => "Zip Extension",
+                            'enabled' => $phpinfo['zip']['zip'] == 'enabled'
+                        ])                                                                                                                                
+                        @include('core::pages.system.list_item_check', [
+                            'title' => "Sodium Extension",
+                            'enabled' => $phpinfo['sodium']['sodium-support'] == 'enabled'
+                        ])                                                                                                                                
+                    </ul>
+                </div>
+            </div>            
+        </div>
+    </div>
+@endsection
