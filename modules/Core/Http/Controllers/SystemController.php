@@ -5,6 +5,7 @@ namespace Modules\Core\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Core\Facades\AdminAsset;
+use Modules\Core\Repositories\AdminActivityRepository;
 use Modules\Core\Tables\ActivityTable;
 
 class SystemController extends Controller
@@ -23,5 +24,13 @@ class SystemController extends Controller
         $table = (new ActivityTable)->build($request);
 
         return view('core::pages.system.activities', compact('table'));
+    }
+
+    public function deleteActivity(Request $request, AdminActivityRepository $activity)
+    {
+        $rows = $request->get('rows', []);
+        $activity->getModel()->whereIn('id', $rows)->delete();
+
+        return apiResponse(true);
     }
 }

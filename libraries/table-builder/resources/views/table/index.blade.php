@@ -2,8 +2,18 @@
     $table_container_id = "table_".substr(\Illuminate\Support\Str::uuid(), 0, 8);
 @endphp
 
-<div id="{{ $table_container_id }}">
-    @include("omc::table.{$theme}.table")
+<div class="omc-table-builder" id="{{ $table_container_id }}">
+    @include("omc::table.{$theme}.table")  
+    <vue-confirm
+        title="{{ __('omc::table.confirm_delete') }}"
+        content="{{ __('omc::table.confirm_delete_content') }}"
+        v-model="showConfirmDelete"
+        :rounded="true"
+        confirmText="{{ __('omc::table.delete') }} }}"
+        cancelText="{{ __('omc::table.cancel') }}"
+        v-on:confirm="onDeleteComfirmed"
+    >
+    </vue-confirm>      
 </div>
 
 @push('scripts')
@@ -11,22 +21,28 @@
     (function() {
         const {defineComponent, ref, reactive, createApp, watch, onMounted} = Vue;
         const data = {!! $table->getJsonTable() !!};
+        const {components} = window.TableBuilder
         const app = createApp(defineComponent({
             name: 'TableBuilder',
             setup() {
-                const columns        = ref(data.columns),
-                    items            = ref(data.items),
-                    last_page        = ref(data.last_page),
-                    total            = ref(data.total),
-                    first_item       = ref(data.first_item),
-                    last_item        = ref(data.last_item),
-                    queryParams      = reactive(data.queryParams),
-                    options          = ref(data.options),
-                    per_page_options = ref([5, 10, 25, 50, 75, 100]),
-                    table_loading    = ref(false),
-                    search_timer     = ref(null),
+                const $toast          = components.Toastification.useToast()
+                const columns         = ref(data.columns),
+                    items             = ref(data.items),
+                    last_page         = ref(data.last_page),
+                    total             = ref(data.total),
+                    first_item        = ref(data.first_item),
+                    last_item         = ref(data.last_item),
+                    queryParams       = reactive(data.queryParams),
+                    options           = ref(data.options),
+                    actions           = ref(data.actions),
+                    per_page_options  = ref([5, 10, 25, 50, 75, 100]),
+                    table_loading     = ref(false),
+                    search_timer      = ref(null),
                     isComponentLoaded = ref(false),
-                    handlePageChange = function() {
+                    showConfirmDelete = ref(false),
+                    delete_url        = ref(data.delete_url),
+                    deletingRows      = ref([]),
+                    handlePageChange  = function() {
                         table_loading.value = true
                         axios.get('{{ request()->url() }}', {params: queryParams})
                         .then(function(resp) {
@@ -41,6 +57,28 @@
                         .finally(function() {
                             table_loading.value = false
                         })
+                    },
+                    onDelete = function(row) {
+                        showConfirmDelete.value = true
+                        deletingRows.value.push(row.id)
+                    }
+                    onDeleteComfirmed = function() {
+                        table_loading.value = true
+                        axios.post(delete_url.value, {rows: deletingRows.value})
+                        .then(function(resp) {
+                            if(resp.status == 200 && resp.data.success) {
+                                handlePageChange()
+                                $toast.success(`{{ __('omc::table.deleted') }}`)
+                            } else {
+                                $toast.error(`{{ __('omc::table.delete_error') }}`)
+                            }
+                        })
+                        .catch(function() {
+                            $toast.error(`{{ __('omc::table.delete_error') }}`)
+                        })
+                        .finally(function() {
+                            table_loading.value = false
+                        })                        
                     };
 
                 watch(
@@ -66,17 +104,24 @@
                     total,
                     queryParams,
                     options,
-                    handlePageChange,
                     first_item,
                     last_item,
                     per_page_options,
                     table_loading,
-                    isComponentLoaded
+                    isComponentLoaded,
+                    actions,
+                    deletingRows,
+                    showConfirmDelete,
+                    handlePageChange,
+                    onDelete,
+                    onDeleteComfirmed,
                 }
             }
         }));
 
-        app.component('Paginate', window.Paginate)
+        app.component('Paginate', components.Paginate)
+        app.use(components.SimpleConfirm)
+        app.use(components.Toastification.default, {timeout: 3500, position: 'bottom-right'})
         app.mount('#{{$table_container_id}}')
     })()
 </script>

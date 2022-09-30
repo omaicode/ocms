@@ -64,7 +64,7 @@ class Builder implements Htmlable
         $this->initActions();
         $this->initModel($request);
         $this->handleRequest($request);
-
+        
         return View::make($this->view, array_merge([
             'theme' => $this->theme,
             'table' => $this
@@ -96,6 +96,8 @@ class Builder implements Htmlable
             'total'       => $this->total,
             'first_item'  => $this->first_item,
             'last_item'   => $this->last_item,
+            'delete_url'  => $this->delete_url,
+            'actions'     => $this->actions->toArray(),
             'queryParams' => [
                 'page'     => $this->page,
                 'per_page' => $this->per_page,
@@ -105,7 +107,7 @@ class Builder implements Htmlable
             'options' => [
                 'show_actions'  => $this->showActions(),
                 'total_columns' => $this->totalColumns()
-            ]
+            ],
         ])->toJson();
     }
 

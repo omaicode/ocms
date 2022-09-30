@@ -35,6 +35,7 @@ Route::group([
     $router->prefix('system')->as('system.')->group(function($router) {
         $router->get('information', 'SystemController@information')->name('information');
         $router->get('activities', 'SystemController@activities')->name('activities');
+        $router->post('activities/delete', 'SystemController@deleteActivity')->name('activities.delete');
     });
 });
 

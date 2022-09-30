@@ -13,11 +13,13 @@ class ActivityTable extends Builder
     protected $model = AdminActivity::class;
 
     protected string $header_title = 'core::menu.system.activities';
-    protected bool $show_actions = false;
+    protected bool $show_actions = true;
 
     public function __construct(array $options = [])
     {
         parent::__construct($options);
+
+        $this->delete_url = route('admin.system.activities.delete');
 
         $this
         ->addRelations('admin')

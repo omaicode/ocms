@@ -19,7 +19,7 @@
                         v-text="column.label"
                     >
                     </th>
-                    <th scope="col" class="align-middle" v-if="options.show_actions">
+                    <th scope="col" class="align-middle text-center" v-if="options.show_actions">
                         <span style="font-size: 18px; line-height: 0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.75 12.25h10.5m-10.5-4h10.5m-10.5-4h10.5"/></svg>                            
                         </span>
@@ -38,7 +38,41 @@
                     >
                     </td>
                     <td scope="row" class="align-middle text-center" v-if="options.show_actions">
-                        @include('omc::table.bootstrap.actions')
+                        <div class="dropdown open" style="position: static">
+                            <button 
+                                class="btn btn-dropdown dropdown-toggle" 
+                                type="button" 
+                                data-bs-toggle="dropdown" 
+                                data-bs-boundary="viewport"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><circle cx="8" cy="2.5" r=".75"/><circle cx="8" cy="8" r=".75"/><circle cx="8" cy="13.5" r=".75"/></g></svg>
+                            </button>
+                            <div class="dropdown-menu">
+                                <template v-for="(action, index) in actions" :key="index">
+                                <div 
+                                    class="dropdown-item" 
+                                    style="cursor: pointer"
+                                    v-bind="action.attributes"
+                                    v-on:click="onDelete(row)"
+                                    v-if="action.type == 'delete'"
+                                >
+                                    <span class="action-icon" v-if="action.icon" v-html="action.icon"></span>
+                                    <span v-text="action.text"></span>
+                                </div>                                    
+                                <a 
+                                    class="dropdown-item" 
+                                    :href="action.url"
+                                    v-bind="action.attributes"
+                                    v-else
+                                >
+                                    <span class="action-icon" v-if="action.icon" v-html="action.icon"></span>
+                                    <span v-text="action.text"></span>
+                                </a>
+                                </template>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 <tr v-if="items.length <= 0">

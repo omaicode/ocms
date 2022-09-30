@@ -106,6 +106,7 @@ class CoreServiceProvider extends ServiceProvider
     {
         $this->app->register(AuthServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
+        $this->app->register(RepositoryServiceProvider::class);
 
         Helper::autoload(base_path('modules/Core/Helpers'));
         Config::load();
