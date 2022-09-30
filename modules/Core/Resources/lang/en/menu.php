@@ -6,5 +6,6 @@ return [
     'settings.general' => 'General',
     'settings.email' => 'Email',
     'system' => "Sytem",
-    'system.information' => "Information"
+    'system.information' => "Information",
+    'system.activities'  => "Activity Logs"
 ];

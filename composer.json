@@ -18,7 +18,9 @@
         "omaicode/larinfo": "*",
         "omaicode/modules-management": "*",
         "omaicode/permissions-management": "*",
-        "omaicode/repository": "*"
+        "omaicode/repository": "*",
+        "omaicode/laravel-table-builder": "*",
+        "wikimedia/composer-merge-plugin": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -59,7 +61,20 @@
     "extra": {
         "laravel": {
             "dont-discover": []
-        }
+        },
+        "merge-plugin": {
+            "include": [
+                "./themes/*/composer.json"
+            ],
+            "recurse": false,
+            "replace": false,
+            "ignore-duplicates": false,
+            "merge-dev": false,
+            "merge-extra": false,
+            "merge-extra-deep": false,
+            "merge-replace": false,
+            "merge-scripts": false
+        }        
     },
     "config": {
         "optimize-autoloader": true,

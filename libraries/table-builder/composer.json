@@ -1,0 +1,29 @@
+{
+    "name": "omaicode/laravel-table-builder",
+    "description": "Best way to build your tables",
+    "type": "library",
+    "require": {
+        "php": ">=7.3",
+        "laravel/framework": "^7.0|^8.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Omaicode\\TableBuilder\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bieber Kieu",
+            "email": "thien.kt@omaicode.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+          "providers": [
+            "Omaicode\\TableBuilder\\Providers\\TableServiceProvider"
+          ]
+        }
+    }
+}

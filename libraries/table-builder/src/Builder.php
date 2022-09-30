@@ -1,0 +1,120 @@
+<?php
+namespace Omaicode\TableBuilder;
+
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\View\View as ViewView;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+use Omaicode\TableBuilder\Exceptions\TableModelException;
+use Omaicode\TableBuilder\Exceptions\TableViewException;
+use Omaicode\TableBuilder\Traits\ActionTrait;
+use Omaicode\TableBuilder\Traits\ColumnTrait;
+use Omaicode\TableBuilder\Traits\FooterTrait;
+use Omaicode\TableBuilder\Traits\HeaderTrait;
+use Omaicode\TableBuilder\Traits\ModelTrait;
+use Omaicode\TableBuilder\Traits\RequestTrait;
+
+class Builder implements Htmlable
+{
+    use ColumnTrait;
+    use HeaderTrait;
+    use FooterTrait;
+    use ModelTrait;
+    use ActionTrait;
+    use RequestTrait;
+
+    protected $model;
+    protected string $theme = 'bootstrap';
+    protected string $view  = 'omc::table.index';
+    protected bool $show_loading = true;
+    
+    public function __construct(array $options = [])
+    {
+        if(!($this->model instanceof Model) && !is_subclass_of($this->model, Model::class)) {
+            throw new TableModelException(__('omc.errors.model', ['class' => get_class($this->model)]));
+        }
+
+        if(isset($options['view'])) {
+            if(!View::exists($options['view'])) {
+                throw new TableViewException(__('omc.errors.view', ['view' => $options['view']]));
+            } else {
+                $this->view = $options['view'];
+            }
+        }
+
+        if(isset($options['theme']) && in_array($options['theme'], ['bootstrap'])) {
+            $this->theme = $options['theme'];
+        } else {
+            $this->theme = config('table_builder.theme', 'bootstrap');
+        }        
+
+        $this->model   = app($this->model);
+    }
+
+    /**
+     * Build a view for table
+     * 
+     * @param array $variables 
+     * @return ViewView 
+     */
+    public function build(Request $request, array $variables = [])
+    {
+        $this->initColumns();
+        $this->initActions();
+        $this->initModel($request);
+        $this->handleRequest($request);
+
+        return View::make($this->view, array_merge([
+            'theme' => $this->theme,
+            'table' => $this
+        ], $variables));
+    }
+
+    /**
+     * Render table to HTML
+     * 
+     * @param array $variables 
+     * @return string 
+     */
+    public function toHtml(array $variables = [])
+    {
+        return $this->build(request(), $variables)->render();
+    }
+
+    /**
+     * Convert table data to json
+     * 
+     * @return string 
+     */
+    public function getJsonTable()
+    {
+        return collect([
+            'columns'     => $this->getArrayColumns(),
+            'items'       => $this->getArrayItems(),
+            'last_page'   => $this->last_page,
+            'total'       => $this->total,
+            'first_item'  => $this->first_item,
+            'last_item'   => $this->last_item,
+            'queryParams' => [
+                'page'     => $this->page,
+                'per_page' => $this->per_page,
+                'search'   => request()->get('search', ''),
+                'handle'   => 'table-builder'
+            ],
+            'options' => [
+                'show_actions'  => $this->showActions(),
+                'total_columns' => $this->totalColumns()
+            ]
+        ])->toJson();
+    }
+
+    /**
+     * Check show loading
+     * @return bool 
+     */
+    public function hasLoading()
+    {
+        return $this->show_loading;
+    }
+}

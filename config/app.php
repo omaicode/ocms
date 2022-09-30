@@ -141,6 +141,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Menu' => Modules\Core\Facades\Menu::class,
         'Email' => Modules\Core\Facades\Email::class,
+        'AdminAsset' => Modules\Core\Facades\AdminAsset::class,
     ],
 
 ];

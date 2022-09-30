@@ -86,6 +86,13 @@ class CoreServiceProvider extends ServiceProvider
                 'name' => 'core::menu.system.information',
                 'url' => route('admin.system.information'),
                 'permissions' => ['system.information'],                   
+            ])->add([
+                'id' => 'ocms-menu-system-activities',
+                'priority' => 1,
+                'parent_id' => 'ocms-menu-system',
+                'name' => 'core::menu.system.activities',
+                'url' => route('admin.system.activities'),
+                'permissions' => ['system.information'],                   
             ]);
         });
     }

@@ -103,6 +103,7 @@ class MakeEnumCommand extends GeneratorCommand
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
         $module = Str::title($this->argument('module'));
 
-        return "modules/".$module.'/'.str_replace('\\', '/', $name).'.php';
+        $path = "modules/".$module.str_replace('\\', '/', $name).'.php';
+        return $path;
     }    
 }

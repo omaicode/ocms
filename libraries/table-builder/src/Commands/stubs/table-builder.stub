@@ -1,0 +1,35 @@
+<?php
+namespace DummyNamespace;
+
+use Omaicode\TableBuilder\Builder;
+use Omaicode\TableBuilder\Column;
+
+class DummyClass extends Builder
+{
+    protected $model = ModelNamepsace;
+
+    public function __construct($model, array $options = [])
+    {
+        parent::__construct($model, $options);
+
+        $this->applyQuery(function($query) {
+            return $query;
+        });        
+    }
+
+    /**
+     * Add columns to table
+     *
+     * @return Column[] 
+     * @throws BindingResolutionException 
+     * @throws NotFoundExceptionInterface 
+     * @throws ContainerExceptionInterface 
+     */
+    protected function columns()
+    {
+        return [
+            new Column("id", __('ID')),
+            new Column("created_at", __('Created at')),
+        ];
+    }  
+}

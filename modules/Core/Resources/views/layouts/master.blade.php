@@ -13,7 +13,8 @@
         <meta name="theme-color" content="#ffffff">
     
         <!-- Styles -->
-        <link type="text/css" href="{{ adminAsset('core/css/app.css')}}" rel="stylesheet">      
+        <link type="text/css" href="{{ adminAsset('core/css/app.css')}}" rel="stylesheet">     
+        {!! \AdminAsset::renderStyles() !!} 
         @stack('styles')  
     </head>
     <body>
@@ -26,6 +27,8 @@
 
         <script src="{{ adminAsset('core/js/app.js') }}"></script>
         <script src="{{ adminAsset('core/js/theme.js') }}"></script>
+        {!! \AdminAsset::renderScripts() !!}
+
         @if(session('toast_success'))
             <script>
                 Notyf.success(`{!! session('toast_success') !!}`)

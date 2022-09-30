@@ -51,21 +51,21 @@
                         <table class="table table-striped table-hovered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Version</th>
-                                    <th scope="col">Type</th>
+                                    <th width="50%" scope="col" class="text-left">Name</th>
+                                    <th width="25%" scope="col" class="text-left">Version</th>
+                                    <th width="25%" scope="col" class="text-left">Type</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                @foreach(composerPackages() as $package)
-                                <tr>
-                                    <td scope="row">{{$package['name']}}</td>
-                                    <td>{{$package['version']}}</td>
-                                    <td>{{$package['type']}}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
                         </table>
+                        <div style="height: 350px; overflow-y: auto">
+                            @foreach(composerPackages() as $package)
+                            <div class="d-flex align-items-center">
+                                <div class="py-3 px-4 w-50 small">{{$package['name']}}</div>
+                                <div class="py-3 px-4 w-25 small">{{$package['version']}}</div>
+                                <div class="py-3 px-4 w-25 small">{{$package['type']}}</div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                     
                 </div>
@@ -77,7 +77,7 @@
                     <h5 class="card-title mb-0">Environment</h5>
                 </div>
                 <div class="card-body p-0 pb-3">
-                    <ul class="list-group">
+                    <ul class="list-group" style="height: 378px; overflow-y: auto">
                         <li class="list-group-item list-group-item-action rounded-0">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>Database</div>
