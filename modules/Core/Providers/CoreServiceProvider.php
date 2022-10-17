@@ -38,63 +38,8 @@ class CoreServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
         $this->registerEmailTemplates();
+        $this->loadMenus();
         $this->addComponents();
-
-        Event::listen(RouteMatched::class, function() {
-            Menu::add([
-                'id' => 'ocms-menu-dashboard',
-                'priority' => 0,
-                'parent_id' => null,
-                'name' => 'core::menu.dashboard',
-                'icon' => 'fas fa-tachometer',
-                'url' => route('admin.dashboard')          
-            ])
-            ->add([
-                'id' => 'ocms-menu-settings',
-                'priority' => 98,
-                'parent_id' => null,
-                'name' => 'core::menu.settings',
-                'icon' => 'fas fa-cog',
-                'url' => '#',
-                'permissions' => ['settings.index']
-            ])->add([
-                'id' => 'ocms-menu-settings-general',
-                'priority' => 0,
-                'parent_id' => 'ocms-menu-settings',
-                'name' => 'core::menu.settings.general',
-                'url' => route('admin.settings.general'),
-                'permissions' => ['settings.general'],                   
-            ])->add([
-                'id' => 'ocms-menu-settings-email',
-                'priority' => 1,
-                'parent_id' => 'ocms-menu-settings',
-                'name' => 'core::menu.settings.email',
-                'url' => route('admin.settings.email'),
-                'permissions' => ['settings.email'],                   
-            ])->add([
-                'id' => 'ocms-menu-system',
-                'priority' => 99,
-                'parent_id' => null,
-                'name' => 'core::menu.system',
-                'icon' => 'fas fa-server',
-                'url' => '#',
-                'permissions' => ['system.index'],                   
-            ])->add([
-                'id' => 'ocms-menu-system-information',
-                'priority' => 0,
-                'parent_id' => 'ocms-menu-system',
-                'name' => 'core::menu.system.information',
-                'url' => route('admin.system.information'),
-                'permissions' => ['system.information'],                   
-            ])->add([
-                'id' => 'ocms-menu-system-activities',
-                'priority' => 1,
-                'parent_id' => 'ocms-menu-system',
-                'name' => 'core::menu.system.activities',
-                'url' => route('admin.system.activities'),
-                'permissions' => ['system.information'],                   
-            ]);
-        });
     }
 
     /**
@@ -105,6 +50,7 @@ class CoreServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(AuthServiceProvider::class);
+        $this->app->register(ViewServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
         $this->app->register(RepositoryServiceProvider::class);
 
@@ -202,5 +148,20 @@ class CoreServiceProvider extends ServiceProvider
                 }
             }
         }
+    }
+
+    public function loadMenus()
+    {
+        Event::listen(RouteMatched::class, function() {
+            $menu_path = module_path($this->moduleName, 'Config/menu.php');
+
+            if(file_exists($menu_path)) {
+                $menus = include $menu_path;
+
+                foreach($menus as $menu) {
+                    Menu::add($menu);
+                }
+            }
+        });        
     }
 }

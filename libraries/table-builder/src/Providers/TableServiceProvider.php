@@ -8,6 +8,7 @@ class TableServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        $this->registerConfig();
         $this->registerTranslations();
         $this->registerViews();
         $this->registerAssets();
@@ -23,13 +24,15 @@ class TableServiceProvider extends ServiceProvider
     /**
      * Register package's namespaces.
      */
-    protected function registerNamespaces()
+    protected function registerConfig()
     {
         $configPath = __DIR__ . '/../../config/config.php';
 
         $this->publishes([
             $configPath => config_path('table_builder.php'),
         ], 'config');
+
+        $this->mergeConfigFrom($configPath, 'table_builder');
     }    
 
     /**
@@ -55,26 +58,14 @@ class TableServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = resource_path('views/table-builder');
+        $viewPath = resource_path('vendor/views/table-builder');
         $sourcePath = __DIR__ . '/../../resources/views';
 
         $this->publishes([
             $sourcePath => $viewPath
         ], ['views', 'table-builder-view']);
 
-        $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), 'omc');
-    }    
-    
-    private function getPublishableViewPaths(): array
-    {
-        $paths = [];
-        foreach (Config::get('view.paths') as $path) {
-            if (is_dir($path . '/table-builder')) {
-                $paths[] = $path . '/table-builder';
-            }
-        }
-
-        return $paths;
+        $this->loadViewsFrom($sourcePath, 'omc');
     }    
 
     public function registerAssets()

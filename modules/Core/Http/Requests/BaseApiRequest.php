@@ -2,6 +2,7 @@
 
 namespace Modules\Core\Http\Requests;
 
+use ApiResponse;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -21,12 +22,7 @@ class BaseApiRequest extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(
-            apiResponse(
-                false,
-                $validator->errors()->all(),
-                1,
-                $validator->errors()->first()
-            )
+            ApiResponse::error($validator->errors()->first(), 1)->data($validator->errors()->all())
         );
     }
 }

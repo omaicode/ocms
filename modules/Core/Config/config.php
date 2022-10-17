@@ -3,6 +3,7 @@
 return [
     'name'         => 'Core',
     'admin_prefix' => env('APP_ADMIN_PREFIX', 'admin'),
+    'admin_layout' => 'default-master',
     'cache_menu'   => false,
     'email_templates' => [
         'reset_password' => [

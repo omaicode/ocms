@@ -17,6 +17,13 @@ class MakeTable extends GeneratorCommand
     protected $name = 'ocms:make-table';
 
     /**
+     * Type of the generator
+     * 
+     * @var string
+     */
+    protected $type = 'Table';
+
+    /**
      * The console command description.
      *
      * @var string

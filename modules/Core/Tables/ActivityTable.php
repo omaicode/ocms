@@ -3,17 +3,18 @@ namespace Modules\Core\Tables;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Modules\Core\Entities\AdminActivity;
-use Omaicode\TableBuilder\Builder;
+use Modules\Core\Supports\TableBuilder;
 use Omaicode\TableBuilder\Column;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Container\ContainerExceptionInterface;
 
-class ActivityTable extends Builder
+class ActivityTable extends TableBuilder
 {
     protected $model = AdminActivity::class;
 
     protected string $header_title = 'core::menu.system.activities';
     protected bool $show_actions = true;
+    protected bool $show_create = false;
 
     public function __construct(array $options = [])
     {

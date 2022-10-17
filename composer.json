@@ -13,6 +13,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "wikimedia/composer-merge-plugin": "^2.0",
         "matriphe/larinfo": "3.0.0",
         "omaicode/laravel-enum": "*",
         "omaicode/larinfo": "*",
@@ -20,16 +21,19 @@
         "omaicode/permissions-management": "*",
         "omaicode/repository": "*",
         "omaicode/laravel-table-builder": "*",
-        "wikimedia/composer-merge-plugin": "^2.0"
+        "omaicode/log-viewer": "*",
+        "omaicode/medialibrary": "*",
+        "omaicode/form-builder": "*"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.12",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
-        "phpunit/phpunit": "^9.5.10",
-        "omaicode/debugbar": "*"
+        "omaicode/debugbar": "*",
+        "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
         "psr-4": {
@@ -49,7 +53,9 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -79,14 +85,20 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "wikimedia/composer-merge-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
         {
             "type": "path",
-            "url": "libraries/*"
+            "url": "libraries/*",
+            "options": {
+                "symlink": true
+            }            
         }
     ]
 }

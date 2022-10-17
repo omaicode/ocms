@@ -63,7 +63,7 @@
                                 </div>                                    
                                 <a 
                                     class="dropdown-item" 
-                                    :href="action.url"
+                                    :href="parseUrl(action.url, row)"
                                     v-bind="action.attributes"
                                     v-else
                                 >

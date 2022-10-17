@@ -9,7 +9,7 @@ trait HeaderTrait
     protected bool $show_per_page_select = true;
 
     protected string $header_title = "";
-    protected string $create_url   = '#';
+    public string $create_url   = '#';
 
     public function hasHeader()
     {

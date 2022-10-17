@@ -53,6 +53,13 @@ class MakeAdmin extends Command
             return;
         }
 
+        $email = $this->ask("Enter email use for recovery");
+
+        if(!$email) {
+            $this->error('Please enter email.');
+            return;
+        }
+
         $password = $this->ask("Enter password use for login");
 
         if(!$password) {
@@ -60,7 +67,8 @@ class MakeAdmin extends Command
             return;
         }   
         
-        $admin = Admin::create(compact('name', 'username', 'password'));
+        $super_user = true;
+        $admin = Admin::create(compact('name', 'email', 'username', 'password', 'super_user'));
 
         if($admin) {
             $admin->syncRoles(['Super Admin']);

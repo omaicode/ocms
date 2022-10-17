@@ -1,6 +1,6 @@
 <?php
 return [
-    'edit'               => 'Edit',
+    'edit'               => 'View / Edit',
     'delete'             => 'Delete',
     'actions'            => 'Actions',
     'cancel'             => 'Cancel',
@@ -12,5 +12,6 @@ return [
     'confirm_delete'     => "Confirm Delete",
     'confirm_delete_content' => "Are your sure you want to delete this record?",
     'deleted'            => 'Deleted records successfully!',
-    'delete_error'       => 'Something went wrong!'
+    'delete_error'       => 'Something went wrong!',
+    'create'             => 'Create'
 ];

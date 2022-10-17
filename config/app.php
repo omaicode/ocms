@@ -142,6 +142,7 @@ return [
         'Menu' => Modules\Core\Facades\Menu::class,
         'Email' => Modules\Core\Facades\Email::class,
         'AdminAsset' => Modules\Core\Facades\AdminAsset::class,
+        'ApiResponse' => Modules\Core\Facades\ApiResponseFacade::class,
     ],
 
 ];

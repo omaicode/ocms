@@ -5,7 +5,11 @@ namespace $NAMESPACE$;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Config as FacadesConfig;
-use Modules\Core\Facades\Email;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Routing\Events\RouteMatched;
+
+use Email;
+use Menu;
 
 class $CLASS$ extends ServiceProvider
 {
@@ -32,6 +36,7 @@ class $CLASS$ extends ServiceProvider
         $this->loadMigrationsFrom(module_path($this->moduleName, '$MIGRATIONS_PATH$'));
         $this->registerEmails();
         $this->registerEmailTemplates();
+        $this->loadMenus();
     }
 
     /**
@@ -128,5 +133,20 @@ class $CLASS$ extends ServiceProvider
                 }
             }
         }
+    }    
+
+    public function loadMenus()
+    {
+        Event::listen(RouteMatched::class, function() {
+            $menu_path = module_path($this->moduleName, 'Config/menu.php');
+
+            if(file_exists($menu_path)) {
+                $menus = include $menu_path;
+
+                foreach($menus as $menu) {
+                    Menu::add($menu);
+                }
+            }
+        });        
     }    
 }

@@ -28,5 +28,77 @@ return [
     'saved'        => 'Saved changes successfully!',
     'email_error'  => "Oops! Send mail failed, please try again later.",
     'ajax_email_template_error' => "Can't load email template.",
-    'cache_cleared' => "Cache cleared successfully!"
+    'cache_cleared' => "Cache cleared successfully!",
+    'publish' => 'Publish',
+    'save' => 'Save',
+    'save_and_edit' => 'Save & Edit',
+    'profile' => 'My Profile',
+    'logout'  => 'Logout',
+    'admin' => [
+        'deleting_yourself' => "You can't delete yourself",
+        'new_administrator' => "New Administrator",
+        'edit_administrator' => "Edit Administrator",
+        'username' => 'Username',
+        'email' => 'Email',
+        'name' => 'Full name',
+        'role' => 'Role',
+        'password' => 'Password',
+        'password_confirm' => 'Password confirmation',
+        'username_placeholder' => 'Enter username',
+        'email_placeholder' => 'Enter email address',
+        'name_placeholder'  => 'Enter full name',
+        'role_placeholder' => 'Select role',
+        'password_placeholder' => 'Enter password',
+        'password_confirm_placeholder' => 'Re-enter password',
+        'username_help' => 'The username must have at least 6 characters and only contains characters a-z, A-Z, 0-9.',
+        'password_help' => 'The password must have at least 8 characters.',
+        'avatar' => 'Avatar'
+    ],
+    'dashboard' => [
+        'total_admins'  => 'Total Admins',
+        'total_modules' => 'Total Modules',
+        'cms_version'   => 'CMS Version',
+        'changelog'     => 'Changelog',
+        'recent_activities' => 'Recent activities',
+        'no_activities'   => 'There is no activities to show.'
+    ],
+    'roles' => [
+        'title' => 'Roles',
+        'id' => 'ID',
+        'name' => 'Name',
+        'created_at' => 'Created at',
+        'total_permissions' => 'Total permissions',
+        'create' => 'Create',
+        'permissions' => [
+            'setting' => [
+                'view' => 'View settings menu',
+                'general' => 'Edit general settings',
+                'email' => 'Edit email settings',
+            ],
+            'system' => [
+                'view' => 'View system menu',
+                'information' => [
+                    'view' => 'System information'
+                ],
+                'activity' => [
+                    'view' => 'Activity logs'
+                ],
+                'error_log' => [
+                    'view' => 'Error logs'
+                ],
+                'admins' => [
+                    'view'   => 'Administrators - view',
+                    'edit'   => 'Administrators - edit',
+                    'create' => 'Administrators - create',
+                    'delete' => 'Administrators - delete'
+                ],
+                'roles' => [
+                    'view'   => 'Roles - view',
+                    'edit'   => 'Roles - edit',
+                    'create' => 'Roles - create',
+                    'delete' => 'Roles - delete'
+                ],
+            ]
+        ]
+    ]
 ];

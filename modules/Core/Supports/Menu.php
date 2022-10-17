@@ -42,6 +42,7 @@ class Menu
             'children' => [],
             'permissions' => [],
             'active' => false,
+            'enable' => true
         ];
 
         $options = array_merge($defaultOptions, $options);
@@ -202,6 +203,6 @@ class Menu
             }
         }
 
-        return collect($links)->sortBy('priority');
+        return collect($links)->filter(fn($x) => $x['enable'] === true)->sortBy('priority');
     }
 }

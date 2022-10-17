@@ -8,11 +8,6 @@ use Omaicode\TableBuilder\Exceptions\TableColumnException;
 trait ColumnTrait
 {
     public array $columns = [];
-    
-    protected function columns()
-    {
-        return [];
-    }
 
     public function addColumn(Column $column)
     {

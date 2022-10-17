@@ -60,7 +60,9 @@
                     },
                     onDelete = function(row) {
                         showConfirmDelete.value = true
-                        deletingRows.value.push(row.id)
+                        if(!deletingRows.value.includes(row.id)) {
+                            deletingRows.value.push(row.id)
+                        }
                     }
                     onDeleteComfirmed = function() {
                         table_loading.value = true
@@ -69,8 +71,9 @@
                             if(resp.status == 200 && resp.data.success) {
                                 handlePageChange()
                                 $toast.success(`{{ __('omc::table.deleted') }}`)
+                                deletingRows.value = []
                             } else {
-                                $toast.error(`{{ __('omc::table.delete_error') }}`)
+                                $toast.error(resp.data.message)
                             }
                         })
                         .catch(function() {
@@ -79,6 +82,21 @@
                         .finally(function() {
                             table_loading.value = false
                         })                        
+                    },
+                    parseUrl = function(url, row) {
+                        let result_url = url
+
+                        if(result_url) {
+                            const splited = url.split('/')
+
+                            splited.forEach(function(path) {
+                                if(path.charAt(0) == ':') {
+                                    result_url = result_url.replace(path, row[path.substring(1, path.length)])
+                                }
+                            })
+                        }
+
+                        return result_url
                     };
 
                 watch(
@@ -115,6 +133,7 @@
                     handlePageChange,
                     onDelete,
                     onDeleteComfirmed,
+                    parseUrl
                 }
             }
         }));

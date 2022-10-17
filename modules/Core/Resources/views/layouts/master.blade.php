@@ -28,6 +28,7 @@
         <script src="{{ adminAsset('core/js/app.js') }}"></script>
         <script src="{{ adminAsset('core/js/theme.js') }}"></script>
         {!! \AdminAsset::renderScripts() !!}
+        {!! \AdminAsset::renderCustomScripts() !!}
 
         @if(session('toast_success'))
             <script>

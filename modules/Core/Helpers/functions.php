@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
+use Modules\Core\Supports\ApiResponse;
 
 if(!function_exists('adminAsset')) {
     function adminAsset($path = '')
@@ -31,18 +33,6 @@ if(!function_exists('timezones')) {
     }
 }
 
-if(!function_exists('apiResponse')) {
-    function apiResponse($success = true, array $data = [], int $code = -1, $message = 'No message')
-    {
-        return response()->json([
-            'success' => $success,
-            'code'    => $success ? 0 : $code,
-            'message' => $message,
-            'data'    => $data
-        ], 200);
-    }
-}
-
 if(!function_exists('composerPackages')) {
     function composerPackages()
     {
@@ -68,5 +58,11 @@ if(!function_exists('composerPackages')) {
         });
 
         return $packages;
+    }
+}
+
+if(!function_exists('dateFormat')) {
+    function dateFormat($date) {
+        return Carbon::parse($date)->format(config('app.date_format', 'Y-m-d H:i:s'));
     }
 }

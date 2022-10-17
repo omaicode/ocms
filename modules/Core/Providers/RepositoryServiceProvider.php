@@ -13,6 +13,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind(\Modules\Core\Contracts\AdminPage::class, \Modules\Core\Supports\AdminPage::class);
         $this->app->bind(\Modules\Core\Repositories\AdminActivityRepository::class, \Modules\Core\Repositories\AdminActivityRepositoryEloquent::class);
         //:end-bindings:
     }

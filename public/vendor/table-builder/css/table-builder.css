@@ -77,8 +77,52 @@
     background-color: rgba(240, 240, 240, .5);
 }
 
+.omc-table-body table {
+    border-collapse: collapse;
+    caption-side: bottom;
+}
+
+.omc-table-body .table th {
+    font-weight: 500;
+    padding: 1rem;
+}
+
+.omc-table-body .table>:not(caption)>*>* {
+    border-bottom-width: 0.0625rem;
+    box-shadow: inset 0 0 0 9999px transparent;
+    padding: 0.75rem 0.5rem;
+}
+
+.omc-table-body .table .thead-light th {
+    background-color: #f2f4f6;
+    color: #1f2937;
+}
+
+.omc-table-body .table thead th {
+    border-top: 0;
+    font-size: .75rem;
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+    padding-top: 0.75rem;
+    text-transform: uppercase;
+}
+
+.omc-table-body .table-flush td, .omc-table-body .table-flush th {
+    border-left: 0;
+    border-right: 0;
+}
+
 .omc-table-body table td {
     white-space: inherit;
+    padding: 1rem;
+}
+
+.omc-table-body .align-middle {
+    vertical-align: middle!important
+}
+
+.omc-table-body .text-center {
+    text-align: middle!important
 }
 
 .omc-table-body .action-icon {
@@ -212,4 +256,3 @@
         width: 30%
     }
 }
-

@@ -1,5 +1,6 @@
 global.Popper = window.Popper = require('@popperjs/core');
 window.bootstrap = require('bootstrap')
+window.Vue       = require('vue');
 
 global.Popper = window.OnScreen = require('onscreen');
 global.noUiSlider = window.noUiSlider = require('nouislider');
@@ -12,5 +13,5 @@ window.Notyf = new (require('notyf')).Notyf({duration: 3500});
 window.SimpleBar = require('simplebar');
 window.TomSelect = require('tom-select');
 window.SimpleMde = require('simplemde/dist/simplemde.min.js');
-window.axios     = require('./axios')
-window.Utils     = require('./utils')
+window.axios     = require('./axios');
+window.Utils     = require('./utils');

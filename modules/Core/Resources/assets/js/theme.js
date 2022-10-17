@@ -347,12 +347,18 @@ w.addEventListener('load', function() {
     const thumbnails    = d.querySelectorAll('.form-control-thumbnail');
 
     forms.forEach(function(form) {
-        form.addEventListener('submit', function() {
-            const submit_btn = form.querySelector('button[type="submit"]')
-
-            if(submit_btn) {
-                submit_btn.innerHTML = `<div class="d-flex align-items-center justify-content-center w-100"><div class="spinner-border spinner-border-sm text-light" role="status"></div><span class="text-light ms-2">Please wait...</span></div>`
-                submit_btn.classList.add('disabled')
+        form.addEventListener('submit', () => {
+            const submitBtns = form.querySelectorAll('button[type="submit"]')
+            if(submitBtns && submitBtns.length > 0) {
+                submitBtns.forEach((btn) => {
+                    let text = 'Please wait...'
+                    if(btn.getAttribute('data-loading-text') == 'none') {
+                        text = btn.textContent
+                    }
+    
+                    btn.innerHTML = `<div class="d-flex align-items-center justify-content-center w-100"><div class="spinner-border spinner-border-sm text-light" role="status"></div><span class="text-light ms-2">${text}</span></div>`
+                    btn.classList.add('disabled')
+                })
             }
         })
     });

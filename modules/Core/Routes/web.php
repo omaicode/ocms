@@ -12,29 +12,39 @@
 */
 
 use Illuminate\Support\Facades\Route;
+use Modules\Core\Entities\Admin;
 
 Route::group([
     'prefix'     => config('core.admin_prefix', 'admin'),
     'middleware' => 'auth',
-    'as'         => 'admin.'
+    'as'         => 'admin.',
+    'namespace'  => 'Admin'
 ], function($router) {
-    $router->get('/', 'AdminController@dashboard')->name('dashboard');
-    $router->get('/account/logout', 'AdminController@logout')->name('logout');
+    $router->get('/', 'DashboardController@dashboard')->name('dashboard');
+    $router->get('/account/logout', 'DashboardController@logout')->name('logout');
+    $router->get('/account/profile', 'ProfileController@index')->name('profile');
+    $router->put('/account/profile', 'ProfileController@update')->name('profile.update');
 
     $router->prefix('settings')->as('settings.')->group(function($router) {
-        $router->get('general', 'SettingController@general')->name('general');
-        $router->get('email', 'SettingController@email')->name('email');
+        $router->get('general', 'SettingController@general')->name('general')->can('setting.general');
+        $router->get('email', 'SettingController@email')->name('email')->can('setting.email');
 
-        $router->post('backend', 'SettingController@updateBackend')->name('backend.post');
-        $router->post('analytics', 'SettingController@updateAnalytics')->name('analytics.post');
-        $router->post('maintenance', 'SettingController@updateMaintenance')->name('maintenance.post');
-        $router->post('email', 'SettingController@updateEmail')->name('email.post');
-        $router->post('ajax/email-template', 'SettingController@getEmailTemplate')->name('email.template');
+        $router->post('backend', 'SettingController@updateBackend')->name('backend.post')->can('setting.general');
+        $router->post('analytics', 'SettingController@updateAnalytics')->name('analytics.post')->can('setting.general');
+        $router->post('maintenance', 'SettingController@updateMaintenance')->name('maintenance.post')->can('setting.general');
+        $router->post('email', 'SettingController@updateEmail')->name('email.post')->can('setting.email');
+        $router->post('ajax/email-template', 'SettingController@getEmailTemplate')->name('email.template')->can('setting.email');
     });
-
+    
     $router->prefix('system')->as('system.')->group(function($router) {
-        $router->get('information', 'SystemController@information')->name('information');
-        $router->get('activities', 'SystemController@activities')->name('activities');
+        $router->resource('administrators', 'AdminController');
+        $router->resource('roles', 'RoleController', ['only' => ['index', 'create', 'store', 'update']]);
+
+        $router->get('information', 'SystemController@information')->name('information')->can('system.information.view');
+        $router->get('activities', 'SystemController@activities')->name('activities')->can('system.activity.view');
+        $router->get('logs', 'SystemController@logs')->name('logs')->can('system.error_log.view');
+
+        $router->post('administrators/deletes', 'AdminController@deletes')->name('administrators.deletes');
         $router->post('activities/delete', 'SystemController@deleteActivity')->name('activities.delete');
     });
 });
@@ -42,7 +52,8 @@ Route::group([
 Route::group([
     'prefix' => 'ajax',
     'middleware' => 'auth',
-    'as' => 'admin.ajax.'
+    'as' => 'admin.ajax.',
+    'namespace' => 'Admin'
 ], function($router) {
     $router->post('clear-cache', 'AjaxController@clearCache')->name('clear-cache');
 
@@ -55,7 +66,8 @@ Route::group([
 Route::group([
     'prefix'     => config('core.admin_prefix', 'admin'),
     'middleware' => 'guest',
-    'as'         => 'admin.'
+    'as'         => 'admin.',
+    'namespace'  => 'Admin'
 ], function($router) {
     $router->prefix('auth')->as('auth.')->group(function($router) {
         $router->get('login', 'AuthController@login')->name('login');

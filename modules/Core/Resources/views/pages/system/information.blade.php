@@ -150,39 +150,39 @@
                         </li>          
                         @include('core::pages.system.list_item_check', [
                             'title' => "OpenSSL Extension",
-                            'enabled' => $phpinfo['openssl']['openssl-support'] == 'enabled'
+                            'enabled' => (isset($phpinfo['openssl']) ? $phpinfo['openssl']['openssl-support'] : null) == 'enabled'
                         ])                                     
                         @include('core::pages.system.list_item_check', [
                             'title' => "Mbstring Extension",
-                            'enabled' => $phpinfo['mbstring']['multibyte-support'] == 'enabled'
+                            'enabled' => (isset($phpinfo['mbstring']) ? $phpinfo['mbstring']['multibyte-support'] : null) == 'enabled'
                         ])                                                           
                         @include('core::pages.system.list_item_check', [
                             'title' => "cURL Extension",
-                            'enabled' => $phpinfo['curl']['curl-support'] == 'enabled'
+                            'enabled' => (isset($phpinfo['curl']) ? $phpinfo['curl']['curl-support'] : null) == 'enabled'
                         ])                                                                                  
                         @include('core::pages.system.list_item_check', [
                             'title' => "EXIF Extension",
-                            'enabled' => $phpinfo['exif']['exif-support'] == 'enabled'
+                            'enabled' => (isset($phpinfo['exif']) ? $phpinfo['exif']['exif-support'] : null) == 'enabled'
                         ])                                                                                                                                
                         @include('core::pages.system.list_item_check', [
                             'title' => "FileInfo Extension",
-                            'enabled' => $phpinfo['fileinfo']['fileinfo-support'] == 'enabled'
+                            'enabled' => (isset($phpinfo['tokenizer']) ? $phpinfo['fileinfo']['fileinfo-support'] : null) == 'enabled'
                         ])                                                                                                                                
                         @include('core::pages.system.list_item_check', [
                             'title' => "Tokenizer Extension",
-                            'enabled' => $phpinfo['tokenizer']['tokenizer-support'] == 'enabled'
+                            'enabled' => (isset($phpinfo['tokenizer']) ? $phpinfo['tokenizer']['tokenizer-support'] : null) == 'enabled'
                         ])                                                                                                                                
                         @include('core::pages.system.list_item_check', [
                             'title' => "Imagick Extension",
-                            'enabled' => $phpinfo['imagick']['imagick-module'] == 'enabled'
+                            'enabled' => (isset($phpinfo['imagick']) ? $phpinfo['imagick']['imagick-module'] : null) == 'enabled'
                         ])                                                                                                                                
                         @include('core::pages.system.list_item_check', [
                             'title' => "Zip Extension",
-                            'enabled' => $phpinfo['zip']['zip'] == 'enabled'
+                            'enabled' => (isset($phpinfo['zip']) ? $phpinfo['zip']['zip'] : null) == 'enabled'
                         ])                                                                                                                                
                         @include('core::pages.system.list_item_check', [
                             'title' => "Sodium Extension",
-                            'enabled' => $phpinfo['sodium']['sodium-support'] == 'enabled'
+                            'enabled' => (isset($phpinfo['sodium']) ? $phpinfo['sodium']['sodium-support'] : null) == 'enabled'
                         ])                                                                                                                                
                     </ul>
                 </div>

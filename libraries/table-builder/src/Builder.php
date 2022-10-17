@@ -2,9 +2,7 @@
 namespace Omaicode\TableBuilder;
 
 use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Contracts\View\View as ViewView;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Omaicode\TableBuilder\Exceptions\TableModelException;
 use Omaicode\TableBuilder\Exceptions\TableViewException;
@@ -53,22 +51,29 @@ class Builder implements Htmlable
     }
 
     /**
-     * Build a view for table
+     * Call before render
      * 
-     * @param array $variables 
-     * @return ViewView 
+     * @return void 
      */
-    public function build(Request $request, array $variables = [])
+    protected function beforeRender()
     {
+        
+    }    
+
+    public function render()
+    {
+        $request = request();
+
         $this->initColumns();
         $this->initActions();
         $this->initModel($request);
         $this->handleRequest($request);
-        
-        return View::make($this->view, array_merge([
+        $this->beforeRender();
+
+        return View::make($this->view, [
             'theme' => $this->theme,
             'table' => $this
-        ], $variables));
+        ]);
     }
 
     /**
@@ -77,9 +82,9 @@ class Builder implements Htmlable
      * @param array $variables 
      * @return string 
      */
-    public function toHtml(array $variables = [])
-    {
-        return $this->build(request(), $variables)->render();
+    public function toHtml()
+    {        
+        return $this->render()->render();
     }
 
     /**

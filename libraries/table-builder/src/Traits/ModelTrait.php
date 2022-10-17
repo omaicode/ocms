@@ -18,6 +18,7 @@ trait ModelTrait
 
     protected $per_page = 10;
     private ?Closure $query = null;
+    private $relations;
 
     /**
      * 
@@ -38,7 +39,7 @@ trait ModelTrait
      */
     public function addRelations($relations)
     {
-        $this->model = $this->model->with($relations);
+        $this->relations = $relations;
 
         return $this;
     }
@@ -63,7 +64,11 @@ trait ModelTrait
      */
     public function initModel(Request $request)
     {
-        $data = $this->model;
+        $data = $this->model->query();
+
+        if($this->relations) {
+            $data->with($this->relations);    
+        }
 
         if($this->query) {
             $data->where(fn($sub_query) => ($this->query)($data, $request));
@@ -86,7 +91,7 @@ trait ModelTrait
                     $resolves[$column->field] = $column->display;
                 }
             }
-
+            
             $this->items = $data->getCollection()->map(fn($row) => new Row($row, $resolves));
         }
 

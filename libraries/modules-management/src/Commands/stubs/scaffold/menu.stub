@@ -1,0 +1,13 @@
+<?php
+
+return [
+    [
+        'id' => 'ocms-menu-$LOWER_NAME$',
+        'priority' => 0,
+        'parent_id' => null,
+        'name' => '$LOWER_NAME$::menu.dashboard',
+        'icon' => 'fas fa-tachometer',
+        'url' => "#",
+        'enable => false
+    ]
+];
