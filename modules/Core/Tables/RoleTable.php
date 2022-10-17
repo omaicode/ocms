@@ -37,7 +37,7 @@ class RoleTable extends TableBuilder
         $this->delete_url = '/path/to/delete/url';
 
         // Set edit URL. See documentation for more details
-        $this->edit_url = '/path/to/edit/:id';
+        $this->edit_url = route('admin.system.roles.edit', ['role' => ':id']);
 
         // Apply custom query
         $this->applyQuery(function($query, $request) {

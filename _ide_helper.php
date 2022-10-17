@@ -16091,1276 +16091,7 @@
      
 }
 
-        namespace Modules\Core\Facades { 
-            /**
-     * 
-     *
-     */ 
-        class Menu {
-                    /**
-         * Add link
-         *
-         * @param array $options
-         * @return \Modules\Core\Supports\Menu 
-         * @static 
-         */ 
-        public static function add($options)
-        {
-                        /** @var \Modules\Core\Supports\Menu $instance */
-                        return $instance->add($options);
-        }
-                    /**
-         * 
-         *
-         * @param array|string $id
-         * @param null $parentId
-         * @return \Modules\Core\Supports\Menu 
-         * @static 
-         */ 
-        public static function remove($id, $parentId = null)
-        {
-                        /** @var \Modules\Core\Supports\Menu $instance */
-                        return $instance->remove($id, $parentId);
-        }
-                    /**
-         * 
-         *
-         * @param string $id
-         * @param null|string $parentId
-         * @return bool 
-         * @static 
-         */ 
-        public static function has($id, $parentId = null)
-        {
-                        /** @var \Modules\Core\Supports\Menu $instance */
-                        return $instance->has($id, $parentId);
-        }
-                    /**
-         * Rearrange links
-         *
-         * @return \Illuminate\Support\Collection 
-         * @throws Exception
-         * @throws InvalidArgumentException
-         * @static 
-         */ 
-        public static function all()
-        {
-                        /** @var \Modules\Core\Supports\Menu $instance */
-                        return $instance->all();
-        }
-         
-    }
-            /**
-     * 
-     *
-     */ 
-        class Email {
-                    /**
-         * 
-         *
-         * @param mixed $name
-         * @param array $data
-         * @return \Modules\Core\Supports\Email 
-         * @throws InvalidArgumentException
-         * @static 
-         */ 
-        public static function addTemplate($name, $data)
-        {
-                        /** @var \Modules\Core\Supports\Email $instance */
-                        return $instance->addTemplate($name, $data);
-        }
-                    /**
-         * 
-         *
-         * @param mixed $name
-         * @return bool 
-         * @static 
-         */ 
-        public static function exists($name)
-        {
-                        /** @var \Modules\Core\Supports\Email $instance */
-                        return $instance->exists($name);
-        }
-                    /**
-         * 
-         *
-         * @param mixed $name
-         * @return \Modules\Core\Supports\Email 
-         * @static 
-         */ 
-        public static function removeTemplate($name)
-        {
-                        /** @var \Modules\Core\Supports\Email $instance */
-                        return $instance->removeTemplate($name);
-        }
-                    /**
-         * 
-         *
-         * @param string $template
-         * @param mixed $email
-         * @param array $variables
-         * @return void 
-         * @throws InvalidArgumentException
-         * @throws BindingResolutionException
-         * @throws BindingResolutionException
-         * @throws NotFoundExceptionInterface
-         * @throws ContainerExceptionInterface
-         * @static 
-         */ 
-        public static function send($template, $email, $variables = [])
-        {
-                        /** @var \Modules\Core\Supports\Email $instance */
-                        $instance->send($template, $email, $variables);
-        }
-                    /**
-         * 
-         *
-         * @return \Illuminate\Support\Collection 
-         * @static 
-         */ 
-        public static function all()
-        {
-                        /** @var \Modules\Core\Supports\Email $instance */
-                        return $instance->all();
-        }
-                    /**
-         * 
-         *
-         * @param mixed $name
-         * @return mixed 
-         * @static 
-         */ 
-        public static function get($name)
-        {
-                        /** @var \Modules\Core\Supports\Email $instance */
-                        return $instance->get($name);
-        }
-                    /**
-         * 
-         *
-         * @param mixed $name
-         * @return mixed 
-         * @static 
-         */ 
-        public static function set($name, $value)
-        {
-                        /** @var \Modules\Core\Supports\Email $instance */
-                        return $instance->set($name, $value);
-        }
-         
-    }
-            /**
-     * 
-     *
-     */ 
-        class AdminAsset {
-                    /**
-         * Add scripts
-         *
-         * @param string $name
-         * @param string $url
-         * @return \Modules\Core\Supports\AdminAsset 
-         * @static 
-         */ 
-        public static function addScript($name, $url)
-        {
-                        /** @var \Modules\Core\Supports\AdminAsset $instance */
-                        return $instance->addScript($name, $url);
-        }
-                    /**
-         * Remove script
-         *
-         * @param string $name
-         * @return \Modules\Core\Supports\AdminAsset 
-         * @static 
-         */ 
-        public static function removeScript($name)
-        {
-                        /** @var \Modules\Core\Supports\AdminAsset $instance */
-                        return $instance->removeScript($name);
-        }
-                    /**
-         * Add style
-         *
-         * @param string $name
-         * @param string $url
-         * @return \Modules\Core\Supports\AdminAsset 
-         * @static 
-         */ 
-        public static function addStyle($name, $url)
-        {
-                        /** @var \Modules\Core\Supports\AdminAsset $instance */
-                        return $instance->addStyle($name, $url);
-        }
-                    /**
-         * Remove style
-         *
-         * @param string $name
-         * @return \Modules\Core\Supports\AdminAsset 
-         * @static 
-         */ 
-        public static function removeStyle($name)
-        {
-                        /** @var \Modules\Core\Supports\AdminAsset $instance */
-                        return $instance->removeStyle($name);
-        }
-                    /**
-         * Render scripts
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function renderScripts()
-        {
-                        /** @var \Modules\Core\Supports\AdminAsset $instance */
-                        return $instance->renderScripts();
-        }
-                    /**
-         * Render custom scripts
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function renderCustomScripts()
-        {
-                        /** @var \Modules\Core\Supports\AdminAsset $instance */
-                        return $instance->renderCustomScripts();
-        }
-                    /**
-         * Render styles
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function renderStyles()
-        {
-                        /** @var \Modules\Core\Supports\AdminAsset $instance */
-                        return $instance->renderStyles();
-        }
-                    /**
-         * Add assets by groups
-         *
-         * @param array $groups
-         * @return \Modules\Core\Supports\AdminAsset 
-         * @static 
-         */ 
-        public static function addByGroups($groups)
-        {
-                        /** @var \Modules\Core\Supports\AdminAsset $instance */
-                        return $instance->addByGroups($groups);
-        }
-                    /**
-         * Add custom script
-         *
-         * @param string $script
-         * @return void 
-         * @static 
-         */ 
-        public static function addCustomScript($script)
-        {
-                        /** @var \Modules\Core\Supports\AdminAsset $instance */
-                        $instance->addCustomScript($script);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function push($name, $content)
-        {
-                        /** @var \Modules\Core\Supports\AdminAsset $instance */
-                        return $instance->push($name, $content);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function getPushs()
-        {
-                        /** @var \Modules\Core\Supports\AdminAsset $instance */
-                        return $instance->getPushs();
-        }
-         
-    }
-            /**
-     * 
-     *
-     */ 
-        class ApiResponseFacade {
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function message($message)
-        {
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->message($message);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function code($code)
-        {
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->code($code);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function success($message = 'success')
-        {
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->success($message);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function error($message = 'error', $code = -1)
-        {
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->error($message, $code);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function data($data = [])
-        {
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->data($data);
-        }
-                    /**
-         * Set the content on the response.
-         *
-         * @param mixed $content
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @throws \InvalidArgumentException
-         * @static 
-         */ 
-        public static function setContent($content)
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setContent($content);
-        }
-                    /**
-         * Factory method for chainability.
-         * 
-         * Example:
-         * 
-         *     return Response::create($body, 200)
-         *         ->setSharedMaxAge(300);
-         *
-         * @return static 
-         * @deprecated since Symfony 5.1, use __construct() instead.
-         * @static 
-         */ 
-        public static function create($content = '', $status = 200, $headers = [])
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        return \Modules\Core\Supports\ApiResponse::create($content, $status, $headers);
-        }
-                    /**
-         * Prepares the Response before it is sent to the client.
-         * 
-         * This method tweaks the Response to ensure that it is
-         * compliant with RFC 2616. Most of the changes are based on
-         * the Request that is "associated" with this Response.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @static 
-         */ 
-        public static function prepare($request)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->prepare($request);
-        }
-                    /**
-         * Sends HTTP headers.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @static 
-         */ 
-        public static function sendHeaders()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->sendHeaders();
-        }
-                    /**
-         * Sends content for the current web response.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @static 
-         */ 
-        public static function sendContent()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->sendContent();
-        }
-                    /**
-         * Sends HTTP headers and content.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @static 
-         */ 
-        public static function send()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->send();
-        }
-                    /**
-         * Gets the current response content.
-         *
-         * @return string|false 
-         * @static 
-         */ 
-        public static function getContent()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getContent();
-        }
-                    /**
-         * Sets the HTTP protocol version (1.0 or 1.1).
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setProtocolVersion($version)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setProtocolVersion($version);
-        }
-                    /**
-         * Gets the HTTP protocol version.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function getProtocolVersion()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getProtocolVersion();
-        }
-                    /**
-         * Sets the response status code.
-         * 
-         * If the status text is null it will be automatically populated for the known
-         * status codes and left empty otherwise.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @throws \InvalidArgumentException When the HTTP status code is not valid
-         * @final 
-         * @static 
-         */ 
-        public static function setStatusCode($code, $text = null)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setStatusCode($code, $text);
-        }
-                    /**
-         * Retrieves the status code for the current web response.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function getStatusCode()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getStatusCode();
-        }
-                    /**
-         * Sets the response charset.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setCharset($charset)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setCharset($charset);
-        }
-                    /**
-         * Retrieves the response charset.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function getCharset()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getCharset();
-        }
-                    /**
-         * Returns true if the response may safely be kept in a shared (surrogate) cache.
-         * 
-         * Responses marked "private" with an explicit Cache-Control directive are
-         * considered uncacheable.
-         * 
-         * Responses with neither a freshness lifetime (Expires, max-age) nor cache
-         * validator (Last-Modified, ETag) are considered uncacheable because there is
-         * no way to tell when or how to remove them from the cache.
-         * 
-         * Note that RFC 7231 and RFC 7234 possibly allow for a more permissive implementation,
-         * for example "status codes that are defined as cacheable by default [...]
-         * can be reused by a cache with heuristic expiration unless otherwise indicated"
-         * (https://tools.ietf.org/html/rfc7231#section-6.1)
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isCacheable()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isCacheable();
-        }
-                    /**
-         * Returns true if the response is "fresh".
-         * 
-         * Fresh responses may be served from cache without any interaction with the
-         * origin. A response is considered fresh when it includes a Cache-Control/max-age
-         * indicator or Expires header and the calculated age is less than the freshness lifetime.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isFresh()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isFresh();
-        }
-                    /**
-         * Returns true if the response includes headers that can be used to validate
-         * the response with the origin server using a conditional GET request.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isValidateable()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isValidateable();
-        }
-                    /**
-         * Marks the response as "private".
-         * 
-         * It makes the response ineligible for serving other clients.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setPrivate()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setPrivate();
-        }
-                    /**
-         * Marks the response as "public".
-         * 
-         * It makes the response eligible for serving other clients.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setPublic()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setPublic();
-        }
-                    /**
-         * Marks the response as "immutable".
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setImmutable($immutable = true)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setImmutable($immutable);
-        }
-                    /**
-         * Returns true if the response is marked as "immutable".
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isImmutable()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isImmutable();
-        }
-                    /**
-         * Returns true if the response must be revalidated by shared caches once it has become stale.
-         * 
-         * This method indicates that the response must not be served stale by a
-         * cache in any circumstance without first revalidating with the origin.
-         * When present, the TTL of the response should not be overridden to be
-         * greater than the value provided by the origin.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function mustRevalidate()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->mustRevalidate();
-        }
-                    /**
-         * Returns the Date header as a DateTime instance.
-         *
-         * @throws \RuntimeException When the header is not parseable
-         * @final 
-         * @static 
-         */ 
-        public static function getDate()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getDate();
-        }
-                    /**
-         * Sets the Date header.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setDate($date)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setDate($date);
-        }
-                    /**
-         * Returns the age of the response in seconds.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function getAge()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getAge();
-        }
-                    /**
-         * Marks the response stale by setting the Age header to be equal to the maximum age of the response.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @static 
-         */ 
-        public static function expire()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->expire();
-        }
-                    /**
-         * Returns the value of the Expires header as a DateTime instance.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function getExpires()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getExpires();
-        }
-                    /**
-         * Sets the Expires HTTP header with a DateTime instance.
-         * 
-         * Passing null as value will remove the header.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setExpires($date = null)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setExpires($date);
-        }
-                    /**
-         * Returns the number of seconds after the time specified in the response's Date
-         * header when the response should no longer be considered fresh.
-         * 
-         * First, it checks for a s-maxage directive, then a max-age directive, and then it falls
-         * back on an expires header. It returns null when no maximum age can be established.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function getMaxAge()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getMaxAge();
-        }
-                    /**
-         * Sets the number of seconds after which the response should no longer be considered fresh.
-         * 
-         * This methods sets the Cache-Control max-age directive.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setMaxAge($value)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setMaxAge($value);
-        }
-                    /**
-         * Sets the number of seconds after which the response should no longer be considered fresh by shared caches.
-         * 
-         * This methods sets the Cache-Control s-maxage directive.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setSharedMaxAge($value)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setSharedMaxAge($value);
-        }
-                    /**
-         * Returns the response's time-to-live in seconds.
-         * 
-         * It returns null when no freshness information is present in the response.
-         * 
-         * When the responses TTL is <= 0, the response may not be served from cache without first
-         * revalidating with the origin.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function getTtl()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getTtl();
-        }
-                    /**
-         * Sets the response's time-to-live for shared caches in seconds.
-         * 
-         * This method adjusts the Cache-Control/s-maxage directive.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setTtl($seconds)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setTtl($seconds);
-        }
-                    /**
-         * Sets the response's time-to-live for private/client caches in seconds.
-         * 
-         * This method adjusts the Cache-Control/max-age directive.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setClientTtl($seconds)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setClientTtl($seconds);
-        }
-                    /**
-         * Returns the Last-Modified HTTP header as a DateTime instance.
-         *
-         * @throws \RuntimeException When the HTTP header is not parseable
-         * @final 
-         * @static 
-         */ 
-        public static function getLastModified()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getLastModified();
-        }
-                    /**
-         * Sets the Last-Modified HTTP header with a DateTime instance.
-         * 
-         * Passing null as value will remove the header.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setLastModified($date = null)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setLastModified($date);
-        }
-                    /**
-         * Returns the literal value of the ETag HTTP header.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function getEtag()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getEtag();
-        }
-                    /**
-         * Sets the ETag value.
-         *
-         * @param string|null $etag The ETag unique identifier or null to remove the header
-         * @param bool $weak Whether you want a weak ETag or not
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setEtag($etag = null, $weak = false)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setEtag($etag, $weak);
-        }
-                    /**
-         * Sets the response's cache headers (validation and/or expiration).
-         * 
-         * Available options are: must_revalidate, no_cache, no_store, no_transform, public, private, proxy_revalidate, max_age, s_maxage, immutable, last_modified and etag.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @throws \InvalidArgumentException
-         * @final 
-         * @static 
-         */ 
-        public static function setCache($options)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setCache($options);
-        }
-                    /**
-         * Modifies the response so that it conforms to the rules defined for a 304 status code.
-         * 
-         * This sets the status, removes the body, and discards any headers
-         * that MUST NOT be included in 304 responses.
-         *
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @see https://tools.ietf.org/html/rfc2616#section-10.3.5
-         * @final 
-         * @static 
-         */ 
-        public static function setNotModified()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setNotModified();
-        }
-                    /**
-         * Returns true if the response includes a Vary header.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function hasVary()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->hasVary();
-        }
-                    /**
-         * Returns an array of header names given in the Vary header.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function getVary()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getVary();
-        }
-                    /**
-         * Sets the Vary header.
-         *
-         * @param string|array $headers
-         * @param bool $replace Whether to replace the actual value or not (true by default)
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @final 
-         * @static 
-         */ 
-        public static function setVary($headers, $replace = true)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setVary($headers, $replace);
-        }
-                    /**
-         * Determines if the Response validators (ETag, Last-Modified) match
-         * a conditional value specified in the Request.
-         * 
-         * If the Response is not modified, it sets the status code to 304 and
-         * removes the actual content by calling the setNotModified() method.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isNotModified($request)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isNotModified($request);
-        }
-                    /**
-         * Is response invalid?
-         *
-         * @see https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
-         * @final 
-         * @static 
-         */ 
-        public static function isInvalid()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isInvalid();
-        }
-                    /**
-         * Is response informative?
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isInformational()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isInformational();
-        }
-                    /**
-         * Is response successful?
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isSuccessful()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isSuccessful();
-        }
-                    /**
-         * Is the response a redirect?
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isRedirection()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isRedirection();
-        }
-                    /**
-         * Is there a client error?
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isClientError()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isClientError();
-        }
-                    /**
-         * Was there a server side error?
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isServerError()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isServerError();
-        }
-                    /**
-         * Is the response OK?
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isOk()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isOk();
-        }
-                    /**
-         * Is the response forbidden?
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isForbidden()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isForbidden();
-        }
-                    /**
-         * Is the response a not found error?
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isNotFound()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isNotFound();
-        }
-                    /**
-         * Is the response a redirect of some form?
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isRedirect($location = null)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isRedirect($location);
-        }
-                    /**
-         * Is the response empty?
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function isEmpty()
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->isEmpty();
-        }
-                    /**
-         * Cleans or flushes output buffers up to target level.
-         * 
-         * Resulting level can be greater than target level if a non-removable buffer has been encountered.
-         *
-         * @final 
-         * @static 
-         */ 
-        public static function closeOutputBuffers($targetLevel, $flush)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        return \Modules\Core\Supports\ApiResponse::closeOutputBuffers($targetLevel, $flush);
-        }
-                    /**
-         * Marks a response as safe according to RFC8674.
-         *
-         * @see https://tools.ietf.org/html/rfc8674
-         * @static 
-         */ 
-        public static function setContentSafe($safe = true)
-        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->setContentSafe($safe);
-        }
-                    /**
-         * Get the status code for the response.
-         *
-         * @return int 
-         * @static 
-         */ 
-        public static function status()
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->status();
-        }
-                    /**
-         * Get the status text for the response.
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function statusText()
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->statusText();
-        }
-                    /**
-         * Get the content of the response.
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function content()
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->content();
-        }
-                    /**
-         * Get the original response content.
-         *
-         * @return mixed 
-         * @static 
-         */ 
-        public static function getOriginalContent()
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getOriginalContent();
-        }
-                    /**
-         * Set a header on the Response.
-         *
-         * @param string $key
-         * @param array|string $values
-         * @param bool $replace
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @static 
-         */ 
-        public static function header($key, $values, $replace = true)
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->header($key, $values, $replace);
-        }
-                    /**
-         * Add an array of headers to the response.
-         *
-         * @param \Symfony\Component\HttpFoundation\HeaderBag|array $headers
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @static 
-         */ 
-        public static function withHeaders($headers)
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->withHeaders($headers);
-        }
-                    /**
-         * Add a cookie to the response.
-         *
-         * @param \Symfony\Component\HttpFoundation\Cookie|mixed $cookie
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @static 
-         */ 
-        public static function cookie($cookie)
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->cookie($cookie);
-        }
-                    /**
-         * Add a cookie to the response.
-         *
-         * @param \Symfony\Component\HttpFoundation\Cookie|mixed $cookie
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @static 
-         */ 
-        public static function withCookie($cookie)
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->withCookie($cookie);
-        }
-                    /**
-         * Expire a cookie when sending the response.
-         *
-         * @param \Symfony\Component\HttpFoundation\Cookie|mixed $cookie
-         * @param string|null $path
-         * @param string|null $domain
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @static 
-         */ 
-        public static function withoutCookie($cookie, $path = null, $domain = null)
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->withoutCookie($cookie, $path, $domain);
-        }
-                    /**
-         * Get the callback of the response.
-         *
-         * @return string|null 
-         * @static 
-         */ 
-        public static function getCallback()
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->getCallback();
-        }
-                    /**
-         * Set the exception to attach to the response.
-         *
-         * @param \Throwable $e
-         * @return \Modules\Core\Supports\ApiResponse 
-         * @static 
-         */ 
-        public static function withException($e)
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->withException($e);
-        }
-                    /**
-         * Throws the response in a HttpResponseException instance.
-         *
-         * @return void 
-         * @throws \Illuminate\Http\Exceptions\HttpResponseException
-         * @static 
-         */ 
-        public static function throwResponse()
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        $instance->throwResponse();
-        }
-                    /**
-         * Register a custom macro.
-         *
-         * @param string $name
-         * @param object|callable $macro
-         * @return void 
-         * @static 
-         */ 
-        public static function macro($name, $macro)
-        {            //Method inherited from \Illuminate\Http\Response         
-                        \Modules\Core\Supports\ApiResponse::macro($name, $macro);
-        }
-                    /**
-         * Mix another object into the class.
-         *
-         * @param object $mixin
-         * @param bool $replace
-         * @return void 
-         * @throws \ReflectionException
-         * @static 
-         */ 
-        public static function mixin($mixin, $replace = true)
-        {            //Method inherited from \Illuminate\Http\Response         
-                        \Modules\Core\Supports\ApiResponse::mixin($mixin, $replace);
-        }
-                    /**
-         * Checks if macro is registered.
-         *
-         * @param string $name
-         * @return bool 
-         * @static 
-         */ 
-        public static function hasMacro($name)
-        {            //Method inherited from \Illuminate\Http\Response         
-                        return \Modules\Core\Supports\ApiResponse::hasMacro($name);
-        }
-                    /**
-         * Flush the existing macros.
-         *
-         * @return void 
-         * @static 
-         */ 
-        public static function flushMacros()
-        {            //Method inherited from \Illuminate\Http\Response         
-                        \Modules\Core\Supports\ApiResponse::flushMacros();
-        }
-                    /**
-         * Dynamically handle calls to the class.
-         *
-         * @param string $method
-         * @param array $parameters
-         * @return mixed 
-         * @throws \BadMethodCallException
-         * @static 
-         */ 
-        public static function macroCall($method, $parameters)
-        {            //Method inherited from \Illuminate\Http\Response         
-                        /** @var \Modules\Core\Supports\ApiResponse $instance */
-                        return $instance->macroCall($method, $parameters);
-        }
-         
-    }
-     
-}
-
-    namespace Facade\Ignition\Facades { 
+        namespace Facade\Ignition\Facades { 
             /**
      * Class Flare.
      *
@@ -18963,6 +17694,1855 @@
         public static function flushMacros()
         {            //Method inherited from \Omaicode\Modules\FileRepository         
                         \Omaicode\Modules\Laravel\LaravelFileRepository::flushMacros();
+        }
+         
+    }
+     
+}
+
+    namespace Modules\Core\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Menu {
+                    /**
+         * Add link
+         *
+         * @param array $options
+         * @return \Modules\Core\Supports\Menu 
+         * @static 
+         */ 
+        public static function add($options)
+        {
+                        /** @var \Modules\Core\Supports\Menu $instance */
+                        return $instance->add($options);
+        }
+                    /**
+         * 
+         *
+         * @param array|string $id
+         * @param null $parentId
+         * @return \Modules\Core\Supports\Menu 
+         * @static 
+         */ 
+        public static function remove($id, $parentId = null)
+        {
+                        /** @var \Modules\Core\Supports\Menu $instance */
+                        return $instance->remove($id, $parentId);
+        }
+                    /**
+         * 
+         *
+         * @param string $id
+         * @param null|string $parentId
+         * @return bool 
+         * @static 
+         */ 
+        public static function has($id, $parentId = null)
+        {
+                        /** @var \Modules\Core\Supports\Menu $instance */
+                        return $instance->has($id, $parentId);
+        }
+                    /**
+         * Rearrange links
+         *
+         * @return \Illuminate\Support\Collection 
+         * @throws Exception
+         * @throws InvalidArgumentException
+         * @static 
+         */ 
+        public static function all()
+        {
+                        /** @var \Modules\Core\Supports\Menu $instance */
+                        return $instance->all();
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Email {
+                    /**
+         * 
+         *
+         * @param mixed $name
+         * @param array $data
+         * @return \Modules\Core\Supports\Email 
+         * @throws InvalidArgumentException
+         * @static 
+         */ 
+        public static function addTemplate($name, $data)
+        {
+                        /** @var \Modules\Core\Supports\Email $instance */
+                        return $instance->addTemplate($name, $data);
+        }
+                    /**
+         * 
+         *
+         * @param mixed $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function exists($name)
+        {
+                        /** @var \Modules\Core\Supports\Email $instance */
+                        return $instance->exists($name);
+        }
+                    /**
+         * 
+         *
+         * @param mixed $name
+         * @return \Modules\Core\Supports\Email 
+         * @static 
+         */ 
+        public static function removeTemplate($name)
+        {
+                        /** @var \Modules\Core\Supports\Email $instance */
+                        return $instance->removeTemplate($name);
+        }
+                    /**
+         * 
+         *
+         * @param string $template
+         * @param mixed $email
+         * @param array $variables
+         * @return void 
+         * @throws InvalidArgumentException
+         * @throws BindingResolutionException
+         * @throws BindingResolutionException
+         * @throws NotFoundExceptionInterface
+         * @throws ContainerExceptionInterface
+         * @static 
+         */ 
+        public static function send($template, $email, $variables = [])
+        {
+                        /** @var \Modules\Core\Supports\Email $instance */
+                        $instance->send($template, $email, $variables);
+        }
+                    /**
+         * 
+         *
+         * @return \Illuminate\Support\Collection 
+         * @static 
+         */ 
+        public static function all()
+        {
+                        /** @var \Modules\Core\Supports\Email $instance */
+                        return $instance->all();
+        }
+                    /**
+         * 
+         *
+         * @param mixed $name
+         * @return mixed 
+         * @static 
+         */ 
+        public static function get($name)
+        {
+                        /** @var \Modules\Core\Supports\Email $instance */
+                        return $instance->get($name);
+        }
+                    /**
+         * 
+         *
+         * @param mixed $name
+         * @return mixed 
+         * @static 
+         */ 
+        public static function set($name, $value)
+        {
+                        /** @var \Modules\Core\Supports\Email $instance */
+                        return $instance->set($name, $value);
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class AdminAsset {
+                    /**
+         * Add scripts
+         *
+         * @param string $name
+         * @param string $url
+         * @return \Modules\Core\Supports\AdminAsset 
+         * @static 
+         */ 
+        public static function addScript($name, $url)
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        return $instance->addScript($name, $url);
+        }
+                    /**
+         * Remove script
+         *
+         * @param string $name
+         * @return \Modules\Core\Supports\AdminAsset 
+         * @static 
+         */ 
+        public static function removeScript($name)
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        return $instance->removeScript($name);
+        }
+                    /**
+         * Add style
+         *
+         * @param string $name
+         * @param string $url
+         * @return \Modules\Core\Supports\AdminAsset 
+         * @static 
+         */ 
+        public static function addStyle($name, $url)
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        return $instance->addStyle($name, $url);
+        }
+                    /**
+         * Remove style
+         *
+         * @param string $name
+         * @return \Modules\Core\Supports\AdminAsset 
+         * @static 
+         */ 
+        public static function removeStyle($name)
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        return $instance->removeStyle($name);
+        }
+                    /**
+         * Render scripts
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function renderScripts()
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        return $instance->renderScripts();
+        }
+                    /**
+         * Render custom scripts
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function renderCustomScripts()
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        return $instance->renderCustomScripts();
+        }
+                    /**
+         * Render styles
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function renderStyles()
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        return $instance->renderStyles();
+        }
+                    /**
+         * Add assets by groups
+         *
+         * @param array $groups
+         * @return \Modules\Core\Supports\AdminAsset 
+         * @static 
+         */ 
+        public static function addByGroups($groups)
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        return $instance->addByGroups($groups);
+        }
+                    /**
+         * Add custom script
+         *
+         * @param string $script
+         * @return void 
+         * @static 
+         */ 
+        public static function addCustomScript($script)
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        $instance->addCustomScript($script);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function push($name, $content)
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        return $instance->push($name, $content);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getPushs()
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        return $instance->getPushs();
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class ApiResponseFacade {
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function message($message)
+        {
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->message($message);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function code($code)
+        {
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->code($code);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function success($message = 'success')
+        {
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->success($message);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function error($message = 'error', $code = -1)
+        {
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->error($message, $code);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function data($data = [])
+        {
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->data($data);
+        }
+                    /**
+         * Set the content on the response.
+         *
+         * @param mixed $content
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @throws \InvalidArgumentException
+         * @static 
+         */ 
+        public static function setContent($content)
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setContent($content);
+        }
+                    /**
+         * Factory method for chainability.
+         * 
+         * Example:
+         * 
+         *     return Response::create($body, 200)
+         *         ->setSharedMaxAge(300);
+         *
+         * @return static 
+         * @deprecated since Symfony 5.1, use __construct() instead.
+         * @static 
+         */ 
+        public static function create($content = '', $status = 200, $headers = [])
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        return \Modules\Core\Supports\ApiResponse::create($content, $status, $headers);
+        }
+                    /**
+         * Prepares the Response before it is sent to the client.
+         * 
+         * This method tweaks the Response to ensure that it is
+         * compliant with RFC 2616. Most of the changes are based on
+         * the Request that is "associated" with this Response.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @static 
+         */ 
+        public static function prepare($request)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->prepare($request);
+        }
+                    /**
+         * Sends HTTP headers.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @static 
+         */ 
+        public static function sendHeaders()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->sendHeaders();
+        }
+                    /**
+         * Sends content for the current web response.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @static 
+         */ 
+        public static function sendContent()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->sendContent();
+        }
+                    /**
+         * Sends HTTP headers and content.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @static 
+         */ 
+        public static function send()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->send();
+        }
+                    /**
+         * Gets the current response content.
+         *
+         * @return string|false 
+         * @static 
+         */ 
+        public static function getContent()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getContent();
+        }
+                    /**
+         * Sets the HTTP protocol version (1.0 or 1.1).
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setProtocolVersion($version)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setProtocolVersion($version);
+        }
+                    /**
+         * Gets the HTTP protocol version.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function getProtocolVersion()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getProtocolVersion();
+        }
+                    /**
+         * Sets the response status code.
+         * 
+         * If the status text is null it will be automatically populated for the known
+         * status codes and left empty otherwise.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @throws \InvalidArgumentException When the HTTP status code is not valid
+         * @final 
+         * @static 
+         */ 
+        public static function setStatusCode($code, $text = null)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setStatusCode($code, $text);
+        }
+                    /**
+         * Retrieves the status code for the current web response.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function getStatusCode()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getStatusCode();
+        }
+                    /**
+         * Sets the response charset.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setCharset($charset)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setCharset($charset);
+        }
+                    /**
+         * Retrieves the response charset.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function getCharset()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getCharset();
+        }
+                    /**
+         * Returns true if the response may safely be kept in a shared (surrogate) cache.
+         * 
+         * Responses marked "private" with an explicit Cache-Control directive are
+         * considered uncacheable.
+         * 
+         * Responses with neither a freshness lifetime (Expires, max-age) nor cache
+         * validator (Last-Modified, ETag) are considered uncacheable because there is
+         * no way to tell when or how to remove them from the cache.
+         * 
+         * Note that RFC 7231 and RFC 7234 possibly allow for a more permissive implementation,
+         * for example "status codes that are defined as cacheable by default [...]
+         * can be reused by a cache with heuristic expiration unless otherwise indicated"
+         * (https://tools.ietf.org/html/rfc7231#section-6.1)
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isCacheable()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isCacheable();
+        }
+                    /**
+         * Returns true if the response is "fresh".
+         * 
+         * Fresh responses may be served from cache without any interaction with the
+         * origin. A response is considered fresh when it includes a Cache-Control/max-age
+         * indicator or Expires header and the calculated age is less than the freshness lifetime.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isFresh()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isFresh();
+        }
+                    /**
+         * Returns true if the response includes headers that can be used to validate
+         * the response with the origin server using a conditional GET request.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isValidateable()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isValidateable();
+        }
+                    /**
+         * Marks the response as "private".
+         * 
+         * It makes the response ineligible for serving other clients.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setPrivate()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setPrivate();
+        }
+                    /**
+         * Marks the response as "public".
+         * 
+         * It makes the response eligible for serving other clients.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setPublic()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setPublic();
+        }
+                    /**
+         * Marks the response as "immutable".
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setImmutable($immutable = true)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setImmutable($immutable);
+        }
+                    /**
+         * Returns true if the response is marked as "immutable".
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isImmutable()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isImmutable();
+        }
+                    /**
+         * Returns true if the response must be revalidated by shared caches once it has become stale.
+         * 
+         * This method indicates that the response must not be served stale by a
+         * cache in any circumstance without first revalidating with the origin.
+         * When present, the TTL of the response should not be overridden to be
+         * greater than the value provided by the origin.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function mustRevalidate()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->mustRevalidate();
+        }
+                    /**
+         * Returns the Date header as a DateTime instance.
+         *
+         * @throws \RuntimeException When the header is not parseable
+         * @final 
+         * @static 
+         */ 
+        public static function getDate()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getDate();
+        }
+                    /**
+         * Sets the Date header.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setDate($date)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setDate($date);
+        }
+                    /**
+         * Returns the age of the response in seconds.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function getAge()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getAge();
+        }
+                    /**
+         * Marks the response stale by setting the Age header to be equal to the maximum age of the response.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @static 
+         */ 
+        public static function expire()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->expire();
+        }
+                    /**
+         * Returns the value of the Expires header as a DateTime instance.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function getExpires()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getExpires();
+        }
+                    /**
+         * Sets the Expires HTTP header with a DateTime instance.
+         * 
+         * Passing null as value will remove the header.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setExpires($date = null)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setExpires($date);
+        }
+                    /**
+         * Returns the number of seconds after the time specified in the response's Date
+         * header when the response should no longer be considered fresh.
+         * 
+         * First, it checks for a s-maxage directive, then a max-age directive, and then it falls
+         * back on an expires header. It returns null when no maximum age can be established.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function getMaxAge()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getMaxAge();
+        }
+                    /**
+         * Sets the number of seconds after which the response should no longer be considered fresh.
+         * 
+         * This methods sets the Cache-Control max-age directive.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setMaxAge($value)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setMaxAge($value);
+        }
+                    /**
+         * Sets the number of seconds after which the response should no longer be considered fresh by shared caches.
+         * 
+         * This methods sets the Cache-Control s-maxage directive.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setSharedMaxAge($value)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setSharedMaxAge($value);
+        }
+                    /**
+         * Returns the response's time-to-live in seconds.
+         * 
+         * It returns null when no freshness information is present in the response.
+         * 
+         * When the responses TTL is <= 0, the response may not be served from cache without first
+         * revalidating with the origin.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function getTtl()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getTtl();
+        }
+                    /**
+         * Sets the response's time-to-live for shared caches in seconds.
+         * 
+         * This method adjusts the Cache-Control/s-maxage directive.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setTtl($seconds)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setTtl($seconds);
+        }
+                    /**
+         * Sets the response's time-to-live for private/client caches in seconds.
+         * 
+         * This method adjusts the Cache-Control/max-age directive.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setClientTtl($seconds)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setClientTtl($seconds);
+        }
+                    /**
+         * Returns the Last-Modified HTTP header as a DateTime instance.
+         *
+         * @throws \RuntimeException When the HTTP header is not parseable
+         * @final 
+         * @static 
+         */ 
+        public static function getLastModified()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getLastModified();
+        }
+                    /**
+         * Sets the Last-Modified HTTP header with a DateTime instance.
+         * 
+         * Passing null as value will remove the header.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setLastModified($date = null)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setLastModified($date);
+        }
+                    /**
+         * Returns the literal value of the ETag HTTP header.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function getEtag()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getEtag();
+        }
+                    /**
+         * Sets the ETag value.
+         *
+         * @param string|null $etag The ETag unique identifier or null to remove the header
+         * @param bool $weak Whether you want a weak ETag or not
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setEtag($etag = null, $weak = false)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setEtag($etag, $weak);
+        }
+                    /**
+         * Sets the response's cache headers (validation and/or expiration).
+         * 
+         * Available options are: must_revalidate, no_cache, no_store, no_transform, public, private, proxy_revalidate, max_age, s_maxage, immutable, last_modified and etag.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @throws \InvalidArgumentException
+         * @final 
+         * @static 
+         */ 
+        public static function setCache($options)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setCache($options);
+        }
+                    /**
+         * Modifies the response so that it conforms to the rules defined for a 304 status code.
+         * 
+         * This sets the status, removes the body, and discards any headers
+         * that MUST NOT be included in 304 responses.
+         *
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @see https://tools.ietf.org/html/rfc2616#section-10.3.5
+         * @final 
+         * @static 
+         */ 
+        public static function setNotModified()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setNotModified();
+        }
+                    /**
+         * Returns true if the response includes a Vary header.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function hasVary()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->hasVary();
+        }
+                    /**
+         * Returns an array of header names given in the Vary header.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function getVary()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getVary();
+        }
+                    /**
+         * Sets the Vary header.
+         *
+         * @param string|array $headers
+         * @param bool $replace Whether to replace the actual value or not (true by default)
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @final 
+         * @static 
+         */ 
+        public static function setVary($headers, $replace = true)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setVary($headers, $replace);
+        }
+                    /**
+         * Determines if the Response validators (ETag, Last-Modified) match
+         * a conditional value specified in the Request.
+         * 
+         * If the Response is not modified, it sets the status code to 304 and
+         * removes the actual content by calling the setNotModified() method.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isNotModified($request)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isNotModified($request);
+        }
+                    /**
+         * Is response invalid?
+         *
+         * @see https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+         * @final 
+         * @static 
+         */ 
+        public static function isInvalid()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isInvalid();
+        }
+                    /**
+         * Is response informative?
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isInformational()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isInformational();
+        }
+                    /**
+         * Is response successful?
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isSuccessful()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isSuccessful();
+        }
+                    /**
+         * Is the response a redirect?
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isRedirection()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isRedirection();
+        }
+                    /**
+         * Is there a client error?
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isClientError()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isClientError();
+        }
+                    /**
+         * Was there a server side error?
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isServerError()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isServerError();
+        }
+                    /**
+         * Is the response OK?
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isOk()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isOk();
+        }
+                    /**
+         * Is the response forbidden?
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isForbidden()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isForbidden();
+        }
+                    /**
+         * Is the response a not found error?
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isNotFound()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isNotFound();
+        }
+                    /**
+         * Is the response a redirect of some form?
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isRedirect($location = null)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isRedirect($location);
+        }
+                    /**
+         * Is the response empty?
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function isEmpty()
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->isEmpty();
+        }
+                    /**
+         * Cleans or flushes output buffers up to target level.
+         * 
+         * Resulting level can be greater than target level if a non-removable buffer has been encountered.
+         *
+         * @final 
+         * @static 
+         */ 
+        public static function closeOutputBuffers($targetLevel, $flush)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        return \Modules\Core\Supports\ApiResponse::closeOutputBuffers($targetLevel, $flush);
+        }
+                    /**
+         * Marks a response as safe according to RFC8674.
+         *
+         * @see https://tools.ietf.org/html/rfc8674
+         * @static 
+         */ 
+        public static function setContentSafe($safe = true)
+        {            //Method inherited from \Symfony\Component\HttpFoundation\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->setContentSafe($safe);
+        }
+                    /**
+         * Get the status code for the response.
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function status()
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->status();
+        }
+                    /**
+         * Get the status text for the response.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function statusText()
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->statusText();
+        }
+                    /**
+         * Get the content of the response.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function content()
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->content();
+        }
+                    /**
+         * Get the original response content.
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function getOriginalContent()
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getOriginalContent();
+        }
+                    /**
+         * Set a header on the Response.
+         *
+         * @param string $key
+         * @param array|string $values
+         * @param bool $replace
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @static 
+         */ 
+        public static function header($key, $values, $replace = true)
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->header($key, $values, $replace);
+        }
+                    /**
+         * Add an array of headers to the response.
+         *
+         * @param \Symfony\Component\HttpFoundation\HeaderBag|array $headers
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @static 
+         */ 
+        public static function withHeaders($headers)
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->withHeaders($headers);
+        }
+                    /**
+         * Add a cookie to the response.
+         *
+         * @param \Symfony\Component\HttpFoundation\Cookie|mixed $cookie
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @static 
+         */ 
+        public static function cookie($cookie)
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->cookie($cookie);
+        }
+                    /**
+         * Add a cookie to the response.
+         *
+         * @param \Symfony\Component\HttpFoundation\Cookie|mixed $cookie
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @static 
+         */ 
+        public static function withCookie($cookie)
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->withCookie($cookie);
+        }
+                    /**
+         * Expire a cookie when sending the response.
+         *
+         * @param \Symfony\Component\HttpFoundation\Cookie|mixed $cookie
+         * @param string|null $path
+         * @param string|null $domain
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @static 
+         */ 
+        public static function withoutCookie($cookie, $path = null, $domain = null)
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->withoutCookie($cookie, $path, $domain);
+        }
+                    /**
+         * Get the callback of the response.
+         *
+         * @return string|null 
+         * @static 
+         */ 
+        public static function getCallback()
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->getCallback();
+        }
+                    /**
+         * Set the exception to attach to the response.
+         *
+         * @param \Throwable $e
+         * @return \Modules\Core\Supports\ApiResponse 
+         * @static 
+         */ 
+        public static function withException($e)
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->withException($e);
+        }
+                    /**
+         * Throws the response in a HttpResponseException instance.
+         *
+         * @return void 
+         * @throws \Illuminate\Http\Exceptions\HttpResponseException
+         * @static 
+         */ 
+        public static function throwResponse()
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        $instance->throwResponse();
+        }
+                    /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {            //Method inherited from \Illuminate\Http\Response         
+                        \Modules\Core\Supports\ApiResponse::macro($name, $macro);
+        }
+                    /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @param bool $replace
+         * @return void 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function mixin($mixin, $replace = true)
+        {            //Method inherited from \Illuminate\Http\Response         
+                        \Modules\Core\Supports\ApiResponse::mixin($mixin, $replace);
+        }
+                    /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {            //Method inherited from \Illuminate\Http\Response         
+                        return \Modules\Core\Supports\ApiResponse::hasMacro($name);
+        }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {            //Method inherited from \Illuminate\Http\Response         
+                        \Modules\Core\Supports\ApiResponse::flushMacros();
+        }
+                    /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function macroCall($method, $parameters)
+        {            //Method inherited from \Illuminate\Http\Response         
+                        /** @var \Modules\Core\Supports\ApiResponse $instance */
+                        return $instance->macroCall($method, $parameters);
+        }
+         
+    }
+     
+}
+
+    namespace Modules\Appearance\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class ThemesManager {
+                    /**
+         * Get all themes.
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function all()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->all();
+        }
+                    /**
+         * Build cache of available themes.
+         *
+         * @static 
+         */ 
+        public static function buildCache()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->buildCache();
+        }
+                    /**
+         * Clear the themes cache if it is enabled.
+         *
+         * @static 
+         */ 
+        public static function clearCache()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->clearCache();
+        }
+                    /**
+         * Check if theme with given name exists.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function has($name = null, $themes = null)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->has($name, $themes);
+        }
+                    /**
+         * Get theme by name (or return all themes if no name given).
+         *
+         * @param string $name
+         * @return mixed 
+         * @static 
+         */ 
+        public static function get($name = null, $themes = null)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->get($name, $themes);
+        }
+                    /**
+         * Set current active theme.
+         *
+         * @param string $name Theme namespace
+         * @throws \Hexadog\ThemesManager\Exceptions\ThemeNotFoundException
+         * @return \Hexadog\ThemesManager\ThemesManager 
+         * @static 
+         */ 
+        public static function set($name)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->set($name);
+        }
+                    /**
+         * Get current theme.
+         *
+         * @return null|\Hexadog\ThemesManager\Theme 
+         * @static 
+         */ 
+        public static function current()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->current();
+        }
+                    /**
+         * Enable a Theme from its name.
+         *
+         * @return \Hexadog\ThemesManager\ThemesManager 
+         * @static 
+         */ 
+        public static function enable($name, $withEvent = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->enable($name, $withEvent);
+        }
+                    /**
+         * Disable a Theme from its name.
+         *
+         * @return \Hexadog\ThemesManager\ThemesManager 
+         * @static 
+         */ 
+        public static function disable($name, $withEvent = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->disable($name, $withEvent);
+        }
+                    /**
+         * Get current theme's asset url.
+         *
+         * @param bool $absolutePath
+         * @static 
+         */ 
+        public static function asset($asset, $absolutePath = true, $version = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->asset($asset, $absolutePath, $version);
+        }
+                    /**
+         * Get current theme's style HTML tag for given asset.
+         *
+         * @param bool $absolutePath
+         * @static 
+         */ 
+        public static function style($asset, $absolutePath = true, $version = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->style($asset, $absolutePath, $version);
+        }
+                    /**
+         * Get current theme's script HTML tag for given asset.
+         *
+         * @param string $mode ''|defer|async
+         * @param bool $absolutePath
+         * @static 
+         */ 
+        public static function script($asset, $mode = '', $absolutePath = true, $type = 'text/javascript', $level = 'functionality', $version = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->script($asset, $mode, $absolutePath, $type, $level, $version);
+        }
+                    /**
+         * Get current theme's image HTML tag for given asset.
+         *
+         * @param bool $absolutePath
+         * @static 
+         */ 
+        public static function image($asset, $alt = '', $class = '', $attributes = [], $absolutePath = true, $version = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->image($asset, $alt, $class, $attributes, $absolutePath, $version);
+        }
+                    /**
+         * Get the current theme path to a versioned Mix file.
+         *
+         * @param string $manifestDirectory
+         * @param mixed $asset
+         * @return string 
+         * @static 
+         */ 
+        public static function mix($asset, $manifestDirectory = '')
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->mix($asset, $manifestDirectory);
+        }
+                    /**
+         * Get theme's asset url.
+         *
+         * @param bool $absolutePath
+         * @static 
+         */ 
+        public static function url($asset, $absolutePath = true, $version = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->url($asset, $absolutePath, $version);
+        }
+                    /**
+         * Filter non active themes.
+         *
+         * @static 
+         */ 
+        public static function filterNonActive()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->filterNonActive();
+        }
+                    /**
+         * Get package class namespace.
+         *
+         * @var string
+         * @param null|mixed $prefix
+         * @return string 
+         * @static 
+         */ 
+        public static function getNamespace($prefix = null)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getNamespace($prefix);
+        }
+                    /**
+         * Get name.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getVendor()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getVendor();
+        }
+                    /**
+         * Get vendor in lower case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getLowerVendor()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getLowerVendor();
+        }
+                    /**
+         * Get vendor in studly case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getStudlyVendor()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getStudlyVendor();
+        }
+                    /**
+         * Get namespace in snake case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getSnakeVendor()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getSnakeVendor();
+        }
+                    /**
+         * Get name.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getName()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getName();
+        }
+                    /**
+         * Get name in lower case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getLowerName()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getLowerName();
+        }
+                    /**
+         * Get name in studly case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getStudlyName()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getStudlyName();
+        }
+                    /**
+         * Get name in snake case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getSnakeName()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getSnakeName();
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class ThemesManager {
+                    /**
+         * Get all themes.
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function all()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->all();
+        }
+                    /**
+         * Build cache of available themes.
+         *
+         * @static 
+         */ 
+        public static function buildCache()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->buildCache();
+        }
+                    /**
+         * Clear the themes cache if it is enabled.
+         *
+         * @static 
+         */ 
+        public static function clearCache()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->clearCache();
+        }
+                    /**
+         * Check if theme with given name exists.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function has($name = null, $themes = null)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->has($name, $themes);
+        }
+                    /**
+         * Get theme by name (or return all themes if no name given).
+         *
+         * @param string $name
+         * @return mixed 
+         * @static 
+         */ 
+        public static function get($name = null, $themes = null)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->get($name, $themes);
+        }
+                    /**
+         * Set current active theme.
+         *
+         * @param string $name Theme namespace
+         * @throws \Hexadog\ThemesManager\Exceptions\ThemeNotFoundException
+         * @return \Hexadog\ThemesManager\ThemesManager 
+         * @static 
+         */ 
+        public static function set($name)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->set($name);
+        }
+                    /**
+         * Get current theme.
+         *
+         * @return null|\Hexadog\ThemesManager\Theme 
+         * @static 
+         */ 
+        public static function current()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->current();
+        }
+                    /**
+         * Enable a Theme from its name.
+         *
+         * @return \Hexadog\ThemesManager\ThemesManager 
+         * @static 
+         */ 
+        public static function enable($name, $withEvent = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->enable($name, $withEvent);
+        }
+                    /**
+         * Disable a Theme from its name.
+         *
+         * @return \Hexadog\ThemesManager\ThemesManager 
+         * @static 
+         */ 
+        public static function disable($name, $withEvent = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->disable($name, $withEvent);
+        }
+                    /**
+         * Get current theme's asset url.
+         *
+         * @param bool $absolutePath
+         * @static 
+         */ 
+        public static function asset($asset, $absolutePath = true, $version = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->asset($asset, $absolutePath, $version);
+        }
+                    /**
+         * Get current theme's style HTML tag for given asset.
+         *
+         * @param bool $absolutePath
+         * @static 
+         */ 
+        public static function style($asset, $absolutePath = true, $version = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->style($asset, $absolutePath, $version);
+        }
+                    /**
+         * Get current theme's script HTML tag for given asset.
+         *
+         * @param string $mode ''|defer|async
+         * @param bool $absolutePath
+         * @static 
+         */ 
+        public static function script($asset, $mode = '', $absolutePath = true, $type = 'text/javascript', $level = 'functionality', $version = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->script($asset, $mode, $absolutePath, $type, $level, $version);
+        }
+                    /**
+         * Get current theme's image HTML tag for given asset.
+         *
+         * @param bool $absolutePath
+         * @static 
+         */ 
+        public static function image($asset, $alt = '', $class = '', $attributes = [], $absolutePath = true, $version = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->image($asset, $alt, $class, $attributes, $absolutePath, $version);
+        }
+                    /**
+         * Get the current theme path to a versioned Mix file.
+         *
+         * @param string $manifestDirectory
+         * @param mixed $asset
+         * @return string 
+         * @static 
+         */ 
+        public static function mix($asset, $manifestDirectory = '')
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->mix($asset, $manifestDirectory);
+        }
+                    /**
+         * Get theme's asset url.
+         *
+         * @param bool $absolutePath
+         * @static 
+         */ 
+        public static function url($asset, $absolutePath = true, $version = true)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->url($asset, $absolutePath, $version);
+        }
+                    /**
+         * Filter non active themes.
+         *
+         * @static 
+         */ 
+        public static function filterNonActive()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->filterNonActive();
+        }
+                    /**
+         * Get package class namespace.
+         *
+         * @var string
+         * @param null|mixed $prefix
+         * @return string 
+         * @static 
+         */ 
+        public static function getNamespace($prefix = null)
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getNamespace($prefix);
+        }
+                    /**
+         * Get name.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getVendor()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getVendor();
+        }
+                    /**
+         * Get vendor in lower case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getLowerVendor()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getLowerVendor();
+        }
+                    /**
+         * Get vendor in studly case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getStudlyVendor()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getStudlyVendor();
+        }
+                    /**
+         * Get namespace in snake case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getSnakeVendor()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getSnakeVendor();
+        }
+                    /**
+         * Get name.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getName()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getName();
+        }
+                    /**
+         * Get name in lower case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getLowerName()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getLowerName();
+        }
+                    /**
+         * Get name in studly case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getStudlyName()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getStudlyName();
+        }
+                    /**
+         * Get name in snake case.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getSnakeName()
+        {
+                        /** @var \Modules\Appearance\Supports\ThemesManager $instance */
+                        return $instance->getSnakeName();
         }
          
     }
@@ -22548,15 +23128,17 @@ namespace  {
             class URL extends \Illuminate\Support\Facades\URL {}
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
-            class Menu extends \Modules\Core\Facades\Menu {}
-            class Email extends \Modules\Core\Facades\Email {}
-            class AdminAsset extends \Modules\Core\Facades\AdminAsset {}
-            class ApiResponse extends \Modules\Core\Facades\ApiResponseFacade {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
             class Image extends \Intervention\Image\Facades\Image {}
             class Larinfo extends \Omaicode\Larinfo\LarinfoFacade {}
             class Debugbar extends \Omaicode\Debugbar\Facades\Debugbar {}
             class Module extends \Omaicode\Modules\Facades\Module {}
+            class Menu extends \Modules\Core\Facades\Menu {}
+            class Email extends \Modules\Core\Facades\Email {}
+            class AdminAsset extends \Modules\Core\Facades\AdminAsset {}
+            class ApiResponse extends \Modules\Core\Facades\ApiResponseFacade {}
+            class Theme extends \Modules\Appearance\Facades\ThemesManager {}
+            class ThemesManager extends \Modules\Appearance\Facades\ThemesManager {}
      
 }
 

@@ -38,7 +38,7 @@ Route::group([
     
     $router->prefix('system')->as('system.')->group(function($router) {
         $router->resource('administrators', 'AdminController');
-        $router->resource('roles', 'RoleController', ['only' => ['index', 'create', 'store', 'update']]);
+        $router->resource('roles', 'RoleController', ['only' => ['index', 'create', 'edit', 'store', 'update']]);
 
         $router->get('information', 'SystemController@information')->name('information')->can('system.information.view');
         $router->get('activities', 'SystemController@activities')->name('activities')->can('system.activity.view');

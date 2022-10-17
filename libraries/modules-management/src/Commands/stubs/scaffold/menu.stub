@@ -8,6 +8,6 @@ return [
         'name' => '$LOWER_NAME$::menu.dashboard',
         'icon' => 'fas fa-tachometer',
         'url' => "#",
-        'enable => false
+        'enable' => false
     ]
 ];

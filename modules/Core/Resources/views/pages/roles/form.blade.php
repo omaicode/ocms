@@ -3,13 +3,13 @@
     $action = route('admin.system.roles.store');
 
     if($role) {
-        $action = route('admin.system.roles.update', ['id' => $role->id]);
+        $action = route('admin.system.roles.update', ['role' => $role->id]);
     }
 @endphp
 
 <x-forms::default-form method="POST" :action="$action">
     @if($role)
-    <input type="hidden" name="__method" value="PUT">
+    <input type="hidden" name="_method" value="PUT">
     @endif
     <div class="card">
         <div class="card-body">
@@ -19,6 +19,7 @@
                 :label="__('core::messages.roles.name')"
                 placeholder="Eg: Admin, Publisher,..."
                 required
+                :value="old('name', $role ? $role->name : '')"
             />
             <div class="fw-bold mb-2">Roles</div>
             <div class="px-3 py-2 rounded border">
@@ -32,6 +33,9 @@
                                 type="checkbox" 
                                 value="{{ $permission }}" 
                                 name="permissions[]"
+                                @if($role && in_array($permission, $role_permissions))
+                                checked
+                                @endif
                             >
                             @lang('core::messages.roles.permissions.'.$permission)
                         </label>

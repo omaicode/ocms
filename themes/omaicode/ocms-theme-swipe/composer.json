@@ -1,0 +1,19 @@
+{
+    "name": "omaicode/ocms-theme-swipe",
+    "description": "Swipe - One Page Bootstrap 5 template for OCMS",
+    "type": "laravel-theme",
+    "version": "1.0.0",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Themesberg",
+            "email": "zoltan@themesberg.com"
+        }
+    ],
+    "extra": {
+        "theme": {
+            "parent": "",
+            "active": true
+        }
+    }
+}

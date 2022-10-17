@@ -94,6 +94,10 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
+        $role = Role::findById($id);
+        if(!$role) return abort(404);
+
+        $role_permissions = $role->getAllPermissions()->pluck('name')->toArray();
         $permissions = $this->getPermissions();
         $breadcrumb = $this->breadcrumb;
         $breadcrumb[] = [
@@ -104,7 +108,7 @@ class RoleController extends Controller
         return $this->adminPage
         ->title('core::messages.roles.title')
         ->breadcrumb($breadcrumb)
-        ->body('core::pages.roles.form', compact('permissions'));
+        ->body('core::pages.roles.form', compact('permissions', 'role', 'role_permissions'));
     }
 
     /**
@@ -113,9 +117,19 @@ class RoleController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(RoleRequest $request, $id)
     {
-        //
+        $role = Role::findById($id);
+        if(!$role) return abort(404);
+
+        $role->update($request->only(['name']));
+        $role->syncPermissions($request->get('permissions', []));
+
+        if($request->after_save == 1) {
+            return redirect()->route('admin.system.roles.edit', ['role' => $role->id])->with('toast_success', __('core::messages.saved'));
+        }        
+
+        return redirect()->route('admin.system.roles.index')->with('toast_success', __('core::messages.saved'));
     }
 
     /**

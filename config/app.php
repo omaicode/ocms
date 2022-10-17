@@ -85,6 +85,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         // App\Providers\EventServiceProvider::class,
         // App\Providers\RouteServiceProvider::class,
+        Omaicode\Modules\LaravelModulesServiceProvider::class,
     ],
 
     /*
@@ -138,11 +139,7 @@ return [
         'Str' => Illuminate\Support\Str::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
-        'View' => Illuminate\Support\Facades\View::class,
-        'Menu' => Modules\Core\Facades\Menu::class,
-        'Email' => Modules\Core\Facades\Email::class,
-        'AdminAsset' => Modules\Core\Facades\AdminAsset::class,
-        'ApiResponse' => Modules\Core\Facades\ApiResponseFacade::class,
+        'View' => Illuminate\Support\Facades\View::class
     ],
 
 ];
