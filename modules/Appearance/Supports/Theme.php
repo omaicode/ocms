@@ -119,7 +119,7 @@ class Theme
         $theme = $this;
 
         do {
-            $viewsPath = $theme->getPath('resources/views' . ($path ? "/{$path}" : ''));
+            $viewsPath = $theme->getPath('views' . ($path ? "/{$path}" : ''));
 
             if (!in_array($viewsPath, $paths)) {
                 $paths[] = $viewsPath;

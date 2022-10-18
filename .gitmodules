@@ -1,0 +1,9 @@
+[submodule "Core"]
+	path = modules/Core
+	url = git@github.com:omaicode/ocms-core.git
+[submodule "Appearance"]
+	path = modules/Appearance
+	url = git@github.com:omaicode/ocms-appearance.git
+[submodule "Page"]
+	path = modules/Page
+	url = git@github.com:omaicode/ocms-page.git

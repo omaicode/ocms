@@ -64,7 +64,7 @@ class InstallCommand extends Command
 
         $modules = Json::make($path);
 
-        $dependencies = $modules->get('require', []);
+        $dependencies = $modules->get('requires', []);
 
         foreach ($dependencies as $module) {
             $module = collect($module);

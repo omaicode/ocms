@@ -1,6 +1,7 @@
 {
     "name": "Page",
     "alias": "page",
+    "type": "composer",
     "description": "Page module for OCMS",
     "keywords": [],
     "priority": 2,
@@ -10,6 +11,15 @@
     "aliases": {},
     "files": [],
     "requires": [
-        "omaicode/appearance"
+        {
+            "name": "omaicode/ocms-core",
+            "version": "1.0.0",
+            "type": "module"
+        },
+        {
+            "name": "omaicode/ocms-appearance",
+            "version": "1.0.0",
+            "type": "module"
+        }
     ]
 }

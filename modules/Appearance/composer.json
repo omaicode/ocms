@@ -1,10 +1,14 @@
 {
-    "name": "omaicode/appearance",
-    "description": "",
+    "name": "omaicode/ocms-appearance",
+    "description": "Appearance module for OCMS",
+    "require": {
+        "php": ">=7.3",
+        "omaicode/ocms-core": "*"
+    },
     "authors": [
         {
-            "name": "",
-            "email": ""
+            "name": "Bieber Kieu",
+            "email": "thien.kt@omaicode.com"
         }
     ],
     "extra": {

@@ -1,10 +1,10 @@
 {
-    "name": "omaicode/page",
+    "name": "omaicode/ocms-page",
     "description": "",
     "authors": [
         {
-            "name": "",
-            "email": ""
+            "name": "Bieber Kieu",
+            "email": "thien.kt@omaicode.com"
         }
     ],
     "extra": {
