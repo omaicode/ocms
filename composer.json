@@ -58,10 +58,10 @@
             "@php artisan ide-helper:meta"
         ],
         "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "git submodule update --init --recursive"
         ],
         "post-create-project-cmd": [
-            "git submodule update --init --recursive",
             "@php artisan key:generate --ansi"
         ]
     },
