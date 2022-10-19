@@ -17971,8 +17971,11 @@
                         $instance->addCustomScript($script);
         }
                     /**
-         * 
+         * Push content to layout
          *
+         * @param mixed $name
+         * @param mixed $content
+         * @return \Modules\Core\Supports\AdminAsset 
          * @static 
          */ 
         public static function push($name, $content)
@@ -17981,14 +17984,28 @@
                         return $instance->push($name, $content);
         }
                     /**
-         * 
+         * Get pushed assets
          *
+         * @return array 
          * @static 
          */ 
         public static function getPushs()
         {
                         /** @var \Modules\Core\Supports\AdminAsset $instance */
                         return $instance->getPushs();
+        }
+                    /**
+         * Check script or stylesalready exists
+         *
+         * @param mixed $type
+         * @param mixed $path
+         * @return bool 
+         * @static 
+         */ 
+        public static function has($type, $path)
+        {
+                        /** @var \Modules\Core\Supports\AdminAsset $instance */
+                        return $instance->has($type, $path);
         }
          
     }
@@ -19264,108 +19281,74 @@
      */ 
         class Shortcode {
                     /**
-         * Run a Closure when the facade has been resolved.
-         *
-         * @param \Closure $callback
-         * @return void 
-         * @static 
-         */ 
-        public static function resolved($callback)
-        {            //Method inherited from \Illuminate\Support\Facades\Facade         
-                        \Modules\Appearance\Facades\Shortcode::resolved($callback);
-        }
-                    /**
-         * Convert the facade into a Mockery spy.
-         *
-         * @return \Mockery\MockInterface 
-         * @static 
-         */ 
-        public static function spy()
-        {            //Method inherited from \Illuminate\Support\Facades\Facade         
-                        return \Modules\Appearance\Facades\Shortcode::spy();
-        }
-                    /**
-         * Initiate a partial mock on the facade.
-         *
-         * @return \Mockery\MockInterface 
-         * @static 
-         */ 
-        public static function partialMock()
-        {            //Method inherited from \Illuminate\Support\Facades\Facade         
-                        return \Modules\Appearance\Facades\Shortcode::partialMock();
-        }
-                    /**
-         * Initiate a mock expectation on the facade.
-         *
-         * @return \Mockery\Expectation 
-         * @static 
-         */ 
-        public static function shouldReceive()
-        {            //Method inherited from \Illuminate\Support\Facades\Facade         
-                        return \Modules\Appearance\Facades\Shortcode::shouldReceive();
-        }
-                    /**
-         * Hotswap the underlying instance behind the facade.
-         *
-         * @param mixed $instance
-         * @return void 
-         * @static 
-         */ 
-        public static function swap($instance)
-        {            //Method inherited from \Illuminate\Support\Facades\Facade         
-                        \Modules\Appearance\Facades\Shortcode::swap($instance);
-        }
-                    /**
-         * Get the root object behind the facade.
-         *
-         * @return mixed 
-         * @static 
-         */ 
-        public static function getFacadeRoot()
-        {            //Method inherited from \Illuminate\Support\Facades\Facade         
-                        return \Modules\Appearance\Facades\Shortcode::getFacadeRoot();
-        }
-                    /**
-         * Clear a resolved facade instance.
+         * Register a new shortcode
          *
          * @param string $name
-         * @return void 
+         * @param callable|string $callback
+         * @return \Modules\Appearance\Shortcode 
          * @static 
          */ 
-        public static function clearResolvedInstance($name)
-        {            //Method inherited from \Illuminate\Support\Facades\Facade         
-                        \Modules\Appearance\Facades\Shortcode::clearResolvedInstance($name);
+        public static function register($name, $callback)
+        {
+                        /** @var \Modules\Appearance\Supports\Shortcode $instance */
+                        return $instance->register($name, $callback);
         }
                     /**
-         * Clear all of the resolved instances.
+         * Enable the laravel-shortcodes
          *
-         * @return void 
+         * @return \Modules\Appearance\Shortcode 
          * @static 
          */ 
-        public static function clearResolvedInstances()
-        {            //Method inherited from \Illuminate\Support\Facades\Facade         
-                        \Modules\Appearance\Facades\Shortcode::clearResolvedInstances();
+        public static function enable()
+        {
+                        /** @var \Modules\Appearance\Supports\Shortcode $instance */
+                        return $instance->enable();
         }
                     /**
-         * Get the application instance behind the facade.
+         * Disable the laravel-shortcodes
          *
-         * @return \Illuminate\Contracts\Foundation\Application 
+         * @return \Modules\Appearance\Shortcode 
          * @static 
          */ 
-        public static function getFacadeApplication()
-        {            //Method inherited from \Illuminate\Support\Facades\Facade         
-                        return \Modules\Appearance\Facades\Shortcode::getFacadeApplication();
+        public static function disable()
+        {
+                        /** @var \Modules\Appearance\Supports\Shortcode $instance */
+                        return $instance->disable();
         }
                     /**
-         * Set the application instance.
+         * Compile the given string
          *
-         * @param \Illuminate\Contracts\Foundation\Application $app
-         * @return void 
+         * @param string $value
+         * @return string 
          * @static 
          */ 
-        public static function setFacadeApplication($app)
-        {            //Method inherited from \Illuminate\Support\Facades\Facade         
-                        \Modules\Appearance\Facades\Shortcode::setFacadeApplication($app);
+        public static function compile($value)
+        {
+                        /** @var \Modules\Appearance\Supports\Shortcode $instance */
+                        return $instance->compile($value);
+        }
+                    /**
+         * Remove all shortcode tags from the given content.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function strip($value)
+        {
+                        /** @var \Modules\Appearance\Supports\Shortcode $instance */
+                        return $instance->strip($value);
+        }
+                    /**
+         * Get compiler
+         *
+         * @return \Modules\Appearance\Compilers\ShortcodeCompiler 
+         * @static 
+         */ 
+        public static function compiler()
+        {
+                        /** @var \Modules\Appearance\Supports\Shortcode $instance */
+                        return $instance->compiler();
         }
          
     }

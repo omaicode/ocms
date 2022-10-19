@@ -1534,6 +1534,19 @@ class BaseField implements Renderable
             $this->value = $this->callback->call($this->form->model(), $this->value, $this);
         }
 
+        $assets = $this->getAssets();
+
+        foreach($assets['css'] as $css) {
+            if(!AdminAsset::has('css', $css)) {
+                AdminAsset::addStyle($this->id, $css);
+            }
+        }
+        foreach($assets['js'] as $js) {
+            if(!AdminAsset::has('js', $js)) {
+                AdminAsset::addScript($this->id, $js);
+            }
+        }
+
         AdminAsset::addCustomScript($this->script);
 
         return View::make($this->getView(), $this->variables());

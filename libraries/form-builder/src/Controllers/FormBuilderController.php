@@ -11,7 +11,7 @@ class FormBuilderController extends Controller
      *
      * @var string
      */
-    protected $title = 'Title';
+    protected $title = '';
 
     /**
      * Get content title.

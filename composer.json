@@ -38,6 +38,7 @@
     "autoload": {
         "psr-4": {
             "Modules\\": "modules/",
+            "Addons\\Shortcodes\\": "addons/shortcodes",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
@@ -58,10 +59,7 @@
             "@php artisan ide-helper:meta"
         ],
         "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "git clone git@github.com:omaicode/ocms-core.git modules/Core",
-            "git clone git@github.com:omaicode/ocms-appearance.git modules/Appearance",
-            "git clone git@github.com:omaicode/ocms-page.git modules/Page"
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"

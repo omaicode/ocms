@@ -2,16 +2,20 @@
 namespace Omaicode\FormBuilder\Traits;
 
 use Illuminate\Support\Arr;
-use Omaicode\FormBuilder\Fields\Display;
+use Omaicode\FormBuilder\Display;
+use Omaicode\FormBuilder\Fields\Ckeditor;
 use Omaicode\FormBuilder\Fields\Password;
 use Omaicode\FormBuilder\Fields\Select;
 use Omaicode\FormBuilder\Fields\Text;
+use Omaicode\FormBuilder\Fields\Textarea;
 
 /**
  * @method Omaicode\FormBuilder\Fields\Text        text($column, $label = '')
+ * @method Omaicode\FormBuilder\Fields\Textarea    textarea($column, $label = '')
  * @method Omaicode\FormBuilder\Fields\Select      select($column, $label = '')
  * @method Omaicode\FormBuilder\Fields\Password    password($column, $label = '')
  * @method Omaicode\FormBuilder\Fields\Display     display($column, $label = '')
+ * @method Omaicode\FormBuilder\Fields\Ckeditor    ckeditor($column, $label = '')
  */
 trait HasFields
 {
@@ -22,9 +26,11 @@ trait HasFields
      */
     public static $availableFields = [
         'text'      => Text::class,
+        'textarea'  => Textarea::class,
         'select'    => Select::class,
         'password'  => Password::class,
         'display'   => Display::class,
+        'ckeditor'  => Ckeditor::class,
     ];
 
     /**
