@@ -7,3 +7,9 @@
 [submodule "Page"]
 	path = modules/Page
 	url = git@github.com:omaicode/ocms-page.git
+[submodule "Media"]
+	path = modules/Media
+	url = git@github.com:omaicode/ocms-media.git
+[submodule "Form"]
+	path = modules/Form
+	url = git@github.com:omaicode/ocms-form.git
