@@ -60,7 +60,11 @@
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "git submodule update --init --recursive"
+            "git clone https://github.com/omaicode/ocms-core.git modules/Core",
+            "git clone https://github.com/omaicode/ocms-form.git modules/Form",
+            "git clone https://github.com/omaicode/ocms-appearance.git modules/Appearance",
+            "git clone https://github.com/omaicode/ocms-media.git modules/Media",
+            "git clone https://github.com/omaicode/ocms-page.git modules/Page"
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
