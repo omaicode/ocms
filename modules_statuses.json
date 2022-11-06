@@ -1,5 +1,7 @@
 {
     "Core": true,
+    "Media": true,
+    "Form": true,
     "Appearance": true,
     "Page": true
 }
