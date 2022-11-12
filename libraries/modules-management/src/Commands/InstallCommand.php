@@ -3,6 +3,7 @@
 namespace Omaicode\Modules\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Omaicode\Modules\Json;
 use Omaicode\Modules\Process\Installer;
 use Symfony\Component\Console\Input\InputArgument;
@@ -45,7 +46,8 @@ class InstallCommand extends Command
             $this->argument('name'),
             $this->argument('version'),
             $this->option('type'),
-            $this->option('tree')
+            $this->option('tree'),
+            $this->option('remove_git'),
         );
 
         return 0;
@@ -87,7 +89,7 @@ class InstallCommand extends Command
      * @param string $type
      * @param bool   $tree
      */
-    protected function install($name, $version = 'dev-master', $type = 'composer', $tree = false)
+    protected function install($name, $version = 'dev-master', $type = 'composer', $tree = false, $remove_git = false)
     {
         $installer = new Installer(
             $name,
@@ -109,6 +111,10 @@ class InstallCommand extends Command
         }
 
         $installer->run();
+
+        if($remove_git) {
+            File::deleteDirectory(base_path('modules/'.$installer->getModuleName().'/.git'));
+        }
 
         if (!$this->option('no-update')) {
             $this->call('ocms:update', [

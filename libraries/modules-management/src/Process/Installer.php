@@ -236,8 +236,15 @@ class Installer
     public function getModuleName()
     {
         $parts = explode('/', $this->name);
+        $module_name = end($parts);
 
-        return Str::studly(end($parts));
+        if($parts[0] == 'omaicode' && substr($module_name, 0, 5) == 'ocms-') {
+            $names = explode('-', $module_name);
+            array_shift($names);
+            $module_name = implode('-', $names);
+        }
+
+        return Str::studly($module_name);
     }
 
     /**
