@@ -15,6 +15,7 @@ return [
 
     'default'   => env('MAIL_MAILER', 'smtp'),
     'queue'     => false,
+    'enable'    => false,
 
     /*
     |--------------------------------------------------------------------------
