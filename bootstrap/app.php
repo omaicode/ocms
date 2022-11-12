@@ -26,26 +26,36 @@ $app = new Illuminate\Foundation\Application(
 |
 */
 
-if(class_exists('Modules\\Core\\Http\\Kernel')) {
-    $app->singleton(
-        Illuminate\Contracts\Http\Kernel::class,
-        Modules\Core\Http\Kernel::class
-    );
+$http_kernel = "Omaicode\\Modules\\Kernels\\HttpKernel";
+$console_kernel = "Omaicode\\Modules\\Kernels\\ConsoleKernel";
+$exception_handler = "Omaicode\\Modules\\Exceptions\\Handler";
+
+if(class_exists("Modules\\Core\\Http\\Kernel")) {
+    $http_kernel = "Modules\\Core\\Http\\Kernel";
 }
 
-if(class_exists('Modules\\Core\\Console\\Kernel')) {
-    $app->singleton(
-        Illuminate\Contracts\Console\Kernel::class,
-        Modules\Core\Console\Kernel::class
-    );
+if(class_exists("Modules\\Core\\Console\\Kernel")) {
+    $console_kernel = "Modules\\Core\\Console\\Kernel";
 }
 
-if(class_exists('Modules\\Core\\Exceptions\\Handler')) {
-    $app->singleton(
-        Illuminate\Contracts\Debug\ExceptionHandler::class,
-        Modules\Core\Exceptions\Handler::class
-    );
+if(class_exists("Modules\\Core\\Exceptions\\Handler")) {
+    $exception_handler = "Modules\\Core\\Exceptions\\Handler";
 }
+
+$app->singleton(
+    Illuminate\Contracts\Http\Kernel::class,
+    $http_kernel
+);
+
+$app->singleton(
+    Illuminate\Contracts\Console\Kernel::class,
+    $console_kernel
+);
+
+$app->singleton(
+    Illuminate\Contracts\Debug\ExceptionHandler::class,
+    $exception_handler
+);
 
 /*
 |--------------------------------------------------------------------------
