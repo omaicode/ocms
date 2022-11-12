@@ -47,7 +47,7 @@ class InstallCommand extends Command
             $this->argument('version'),
             $this->option('type'),
             $this->option('tree'),
-            $this->option('remove_git'),
+            $this->option('remove-git'),
         );
 
         return 0;
@@ -147,6 +147,7 @@ class InstallCommand extends Command
             ['timeout', null, InputOption::VALUE_OPTIONAL, 'The process timeout.', null],
             ['path', null, InputOption::VALUE_OPTIONAL, 'The installation path.', null],
             ['type', null, InputOption::VALUE_OPTIONAL, 'The type of installation.', null],
+            ['remove-git', null, InputOption::VALUE_OPTIONAL, 'Remove .git folder after clone into the project.', null],
             ['tree', null, InputOption::VALUE_NONE, 'Install the module as a git subtree', null],
             ['no-update', null, InputOption::VALUE_NONE, 'Disables the automatic update of the dependencies.', null],
         ];
