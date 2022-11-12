@@ -26,20 +26,26 @@ $app = new Illuminate\Foundation\Application(
 |
 */
 
-$app->singleton(
-    Illuminate\Contracts\Http\Kernel::class,
-    Modules\Core\Http\Kernel::class
-);
+if(class_exists('Modules\\Core\\Http\\Kernel')) {
+    $app->singleton(
+        Illuminate\Contracts\Http\Kernel::class,
+        Modules\Core\Http\Kernel::class
+    );
+}
 
-$app->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    Modules\Core\Console\Kernel::class
-);
+if(class_exists('Modules\\Core\\Console\\Kernel')) {
+    $app->singleton(
+        Illuminate\Contracts\Console\Kernel::class,
+        Modules\Core\Console\Kernel::class
+    );
+}
 
-$app->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Modules\Core\Exceptions\Handler::class
-);
+if(class_exists('Modules\\Core\\Exceptions\\Handler')) {
+    $app->singleton(
+        Illuminate\Contracts\Debug\ExceptionHandler::class,
+        Modules\Core\Exceptions\Handler::class
+    );
+}
 
 /*
 |--------------------------------------------------------------------------
