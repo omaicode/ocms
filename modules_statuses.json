@@ -3,5 +3,6 @@
     "Media": true,
     "Form": true,
     "Appearance": true,
-    "Page": true
+    "Page": true,
+    "System": true
 }
