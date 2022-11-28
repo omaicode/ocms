@@ -5,6 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
+        "composer-plugin-api": "^2.0",
         "php": "^7.3|^8.0",
         "erusev/parsedown": "^1.7",
         "fruitcake/laravel-cors": "^2.0",
@@ -72,6 +73,9 @@
         ]
     },
     "extra": {
+        "extra": {
+            "class": "Omaicode\\Modules\\Installer"
+        },
         "laravel": {
             "dont-discover": []
         },
