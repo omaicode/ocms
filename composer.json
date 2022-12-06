@@ -2,18 +2,34 @@
     "name": "omaicode/ocms",
     "type": "project",
     "description": "OCMS - Content management, Modular & Theme system",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
+        "php": ">=7.3",
+        "ext-exif": "*",
+        "ext-fileinfo": "*",
+        "ext-json": "*",
         "composer-plugin-api": "^2.0",
-        "php": "^7.3|^8.0",
+        "codezero/laravel-unique-translation": "^4.0",
         "erusev/parsedown": "^1.7",
         "fruitcake/laravel-cors": "^2.0",
         "graham-campbell/markdown": "^14.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.75",
+        "illuminate/bus": "^8.71",
+        "illuminate/console": "^8.71",
+        "illuminate/database": "^8.71",
+        "illuminate/pipeline": "^8.71",
+        "illuminate/support": "^8.71",
+        "intervention/image": "^2.7",
+        "laravel/framework": "^7.0|^8.0",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "league/flysystem": "^1.0.64",
+        "league/glide": "^1.7",
+        "maennchen/zipstream-php": "^1.0|^2.0",
         "matriphe/larinfo": "3.0.0",
         "omaicode/laravel-enum": "*@dev",
         "omaicode/laravel-table-builder": "*@dev",
@@ -22,8 +38,10 @@
         "omaicode/modules-management": "*@dev",
         "omaicode/permissions-management": "*@dev",
         "omaicode/repository": "*@dev",
-        "spatie/image": "1.x",
-        "spatie/temporary-directory": "^1.3",
+        "spatie/image": "^1.0.0",
+        "spatie/laravel-translatable": "^4.6",
+        "spatie/temporary-directory": "^1.1|^2.0",
+        "symfony/console": "^4.4|^5.0",
         "wikimedia/composer-merge-plugin": "^2.0"
     },
     "require-dev": {
@@ -60,7 +78,7 @@
             "@php artisan ide-helper:meta"
         ],
         "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""              
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
             "@php artisan ocms:install omaicode/ocms-core --type github --remove-git",
@@ -68,8 +86,8 @@
             "@php artisan ocms:install omaicode/ocms-form --type github --remove-git",
             "@php artisan ocms:install omaicode/ocms-appearance --type github --remove-git",
             "@php artisan ocms:install omaicode/ocms-media --type github --remove-git",
-            "@php artisan ocms:install omaicode/ocms-page --type github --remove-git",            
-            "@php artisan key:generate --ansi"          
+            "@php artisan ocms:install omaicode/ocms-page --type github --remove-git",
+            "@php artisan key:generate --ansi"
         ]
     },
     "extra": {
@@ -91,7 +109,7 @@
             "merge-extra-deep": false,
             "merge-replace": false,
             "merge-scripts": false
-        }        
+        }
     },
     "config": {
         "optimize-autoloader": true,
@@ -109,7 +127,7 @@
             "url": "libraries/*",
             "options": {
                 "symlink": true
-            }            
+            }
         }
     ]
 }

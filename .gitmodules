@@ -16,3 +16,6 @@
 [submodule "System"]
 	path = modules/System
 	url = git@github.com:omaicode/ocms-system.git
+[submodule "modules/Blog"]
+	path = modules/Blog
+	url = git@github.com:omaicode/ocms-blog.git

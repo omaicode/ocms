@@ -4,5 +4,6 @@
     "Form": true,
     "Appearance": true,
     "Page": true,
-    "System": true
+    "System": true,
+    "Blog": true
 }
