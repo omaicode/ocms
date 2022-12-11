@@ -16,6 +16,7 @@
         "codezero/laravel-unique-translation": "^4.0",
         "erusev/parsedown": "^1.7",
         "fruitcake/laravel-cors": "^2.0",
+        "google/apiclient": "^2.7",
         "graham-campbell/markdown": "^14.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "illuminate/bus": "^8.71",
@@ -41,6 +42,7 @@
         "spatie/image": "^1.0.0",
         "spatie/laravel-translatable": "^4.6",
         "spatie/temporary-directory": "^1.1|^2.0",
+        "symfony/cache": "^5.0",
         "symfony/console": "^4.4|^5.0",
         "wikimedia/composer-merge-plugin": "^2.0"
     },
@@ -87,7 +89,6 @@
             "@php artisan ocms:install omaicode/ocms-appearance --type github --remove-git",
             "@php artisan ocms:install omaicode/ocms-media --type github --remove-git",
             "@php artisan ocms:install omaicode/ocms-page --type github --remove-git",
-            "@php artisan ocms:install omaicode/ocms-blog --type github --remove-git",
             "@php artisan key:generate --ansi"
         ]
     },
