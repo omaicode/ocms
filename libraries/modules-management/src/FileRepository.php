@@ -10,7 +10,6 @@ use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
-use Modules\Core\Supports\Config;
 use Omaicode\Modules\Contracts\RepositoryInterface;
 use Omaicode\Modules\Exceptions\InvalidAssetPath;
 use Omaicode\Modules\Exceptions\ModuleNotFoundException;
@@ -332,7 +331,9 @@ abstract class FileRepository implements RepositoryInterface, Countable
             $module->boot();
         }
 
-        Config::load();
+        if(class_exists(\Modules\Core\Supports\Config::class)) {
+            \Modules\Core\Supports\Config::load();
+        }
     }
 
     /**
