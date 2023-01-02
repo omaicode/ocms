@@ -5,4 +5,4 @@
 .doc
 .xlsx
 .xls
-temp/*
+/temp/*
