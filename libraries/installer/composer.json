@@ -1,0 +1,36 @@
+{
+    "name": "omaicode/installer",
+    "description": "Installer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bieber Kieu",
+            "homepage": "https://omaicode.com",
+            "email": "thien.kt@omaicode.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omaicode\\LaravelInstaller\\": "src/"
+        },
+        "files": [
+            "src/Helpers/functions.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Omaicode\\LaravelInstaller\\Providers\\LaravelInstallerServiceProvider"
+                
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability" : "dev"
+}
