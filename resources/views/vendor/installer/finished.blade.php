@@ -16,6 +16,10 @@
 		<pre><code>{{ session('message')['dbOutputLog'] }}</code></pre>
 	@endif --}}
 
+	<p><strong><small>Admin Login Information:</small></strong></p>
+	<p>Username: <b>administrator</b></p>
+	<p>Password: <b>123456</b></p>
+
 	<p><strong><small>Application Console Output:</small></strong></p>
 	<pre><code>{{ $finalMessages }}</code></pre>
 
@@ -26,7 +30,7 @@
 	<pre><code>{{ $finalEnvFile }}</code></pre>
 
     <div class="buttons">
-        <a href="{{ url('/admin/login') }}" class="button">Click here to exit</a>
+        <a href="{{ route('admin.auth.login') }}" class="button">Click here to exit</a>
     </div>
 
 @endsection
