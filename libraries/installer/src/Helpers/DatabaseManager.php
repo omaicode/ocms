@@ -54,6 +54,7 @@ class DatabaseManager
     {
         try{
             Artisan::call('db:seed', ['--force' => true], $outputLog);
+            Artisan::call('ocms:seed Core', [], $outputLog);
         }
         catch(Exception $e){
             return $this->response($e->getMessage(), 'error', $outputLog);
