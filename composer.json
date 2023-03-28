@@ -91,14 +91,6 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "@php artisan ocms:install omaicode/ocms-core --type github --remove-git",
-            "@php artisan ocms:install omaicode/ocms-system --type github --remove-git",
-            "@php artisan ocms:install omaicode/ocms-form --type github --remove-git",
-            "@php artisan ocms:install omaicode/ocms-appearance --type github --remove-git",
-            "@php artisan ocms:install omaicode/ocms-media --type github --remove-git",
-            "@php artisan ocms:install omaicode/ocms-page --type github --remove-git",
-            "@php artisan ocms:install omaicode/ocms-blog --type github --remove-git",
-            "@php artisan ocms:install omaicode/ocms-contact --type github --remove-git",
             "@php artisan key:generate --ansi"
         ]
     },
