@@ -1,0 +1,14 @@
+{
+    "name": "Contact",
+    "alias": "contact",
+    "type": "composer",
+    "description": "Contact module for OCMS",
+    "keywords": [],
+    "priority": 7,
+    "providers": [
+        "Modules\\Contact\\Providers\\ContactServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

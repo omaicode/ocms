@@ -1,0 +1,35 @@
+{
+    "name": "omaicode/ocms-appearance",
+    "description": "Appearance module for OCMS",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.3",
+        "omaicode/laravel-enum": "*@dev",
+        "omaicode/larinfo": "*@dev",
+        "omaicode/modules-management": "*@dev",
+        "omaicode/permissions-management": "*@dev",
+        "omaicode/repository": "*@dev",
+        "omaicode/laravel-table-builder": "*@dev",
+        "omaicode/log-viewer": "*@dev"
+    },
+    "authors": [
+        {
+            "name": "Bieber Kieu",
+            "email": "thien.kt@omaicode.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Appearance\\": ""
+        }
+    }
+}

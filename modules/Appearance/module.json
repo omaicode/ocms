@@ -1,0 +1,27 @@
+{
+    "name": "Appearance",
+    "alias": "appearance",
+    "type": "composer",
+    "description": "",
+    "keywords": [],
+    "priority": 3,
+    "providers": [
+        "Modules\\Appearance\\Providers\\AppearanceServiceProvider",
+        "Modules\\Appearance\\Providers\\ThemeServiceProvider",
+        "Modules\\Appearance\\Providers\\ShortcodeServiceProvider"
+    ],
+    "aliases": {
+        "Theme": "Modules\\Appearance\\Facades\\ThemesManager",
+        "Shortcode": "Modules\\Appearance\\Facades\\Shortcode"
+    },
+    "files": [
+        "./Helpers/functions.php"
+    ],
+    "requires": [
+        {
+            "name": "omaicode/ocms-core",
+            "version": "1.0.0",
+            "type": "module"
+        }
+    ]
+}
