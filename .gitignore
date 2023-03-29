@@ -17,3 +17,4 @@ yarn.lock
 composer.lock
 /public/themes/
 /storage/installed
+.DS_Store
